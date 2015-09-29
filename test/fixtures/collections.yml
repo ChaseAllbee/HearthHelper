@@ -2,10 +2,8 @@
 
 one:
   user_id: 1
-  card_id: 1
-  quantity: 1
+  dust: 1
 
 two:
   user_id: 1
-  card_id: 1
-  quantity: 1
+  dust: 1
