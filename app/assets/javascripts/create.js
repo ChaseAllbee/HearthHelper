@@ -1,17 +1,49 @@
 console.log("out of doit");
+var allCards = [];
 //$('#doit').click(function() {
   //console.log("in doit");
-  var doit = function(){
-    console.log("in doit");
-      $.ajax({
+$.ajax({
+  url: 'https://omgvamp-hearthstone-v1.p.mashape.com/cards',
+  type: 'GET', // The HTTP Method
+  data: {}, // Additional parameters here
+  datatype: 'json',
+  success: function(data) {
+    $.each(data, function() {
+      $.each(this, function(name, value) {
+        card = {}; 
+        if(value.type == "Minion"){
+          card.attack = value.attack;
+          card.health = value.health;
+        }
+        var hey;
+        card.name = value.name;
+        card.cardSet = value.cardSet;
+        card.rarity = value.rarity;
+        card.image = value.img;
+        if(value.playerClass == undefined){
+          card.class = "Neutral"
+        }
+        else{
+          card.class = value.playerClass;
+        }
+        card.type = value.type;
+        card.cost = value.cost;
+        allCards[counter] = card;
+        if (typeof card.rarity != 'undefined'){
+          counter++;
+        }
+        else{
+        }
+      });
+    });//End for each
+    JSON.stringify(allCards);
+  }
+});
+
+$.ajax({
       url: '/cards',
       type: 'POST', // The HTTP Method
-      data: {
-        tester: {
-          name: 'Leeeerooooy Jenkins',
-          text: 'a'
-        }
-      },
+      data: allCards,
       datatype: 'json',
       success: function(data) {
         console.log("in success");
