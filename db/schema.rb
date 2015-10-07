@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002042309) do
+ActiveRecord::Schema.define(version: 20151007052152) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "name"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(version: 20151002042309) do
     t.integer  "attack"
     t.integer  "health"
     t.string   "image"
-    t.string   "how_to_get"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "card_type"
+    t.string   "card_class"
   end
 
   create_table "collection_card_instances", force: :cascade do |t|
