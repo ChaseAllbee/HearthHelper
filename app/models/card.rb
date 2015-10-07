@@ -1,6 +1,7 @@
 class Card < ActiveRecord::Base
-  before_save { name.downcase! }
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  has_many :external_deck_instances
+  has_many :external_decks, through: :external_deck_instances
+  validates :name, presence: true, uniqueness: true
   validates :card_set, presence: true
   validates :rarity, presence: true
   validates :cost, presence: true
@@ -10,3 +11,4 @@ class Card < ActiveRecord::Base
   validates :card_type, presence: true
   validates :card_class, presence: true
 end
+
