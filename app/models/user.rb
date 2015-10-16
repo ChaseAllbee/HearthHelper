@@ -71,6 +71,11 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
+  # Uses username instead of id for routes
+  def to_param
+    username
+  end
+
   private
 
     # Converts email to all lower-case
