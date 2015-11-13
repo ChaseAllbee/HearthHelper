@@ -69,6 +69,8 @@ def push_deck_cards(deck_name, card_name, quantity)
   puts card_name
   if card_name == "Ancestors Call"
     card_id = Card.find_by(name: "Ancestor's Call").id
+  elsif card_name == "Bouncing Blades"
+    card_id = Card.find_by(name: "Bouncing Blade").id
   else
     card_id = Card.find_by(name: card_name).id
   end
