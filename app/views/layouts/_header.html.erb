@@ -1,17 +1,23 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Hearth Helper", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
-        <li><%= link_to "Decks",  '#' %></li>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <%= link_to "Hearth Helper", root_path, class: "brand-logo" %>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to "Home", root_path, class: "waves-effect waves-light" %></li>
         <% if logged_in? %>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+          <li><%= link_to "Decks", '#', class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Collection", '#', class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Sign Out", logout_path, method: "delete", class: "waves-effect waves-light" %></li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Sign In", login_path, class: "waves-effect waves-light" %></li>
         <% end %>
       </ul>
-    </nav>
-  </div>
-</header>
+
+      <!--<ul id="nav-mobile" class="side-nav">
+        <li><a href="index.html">home</a></li>
+        <li><a href="#">login/signin</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>-->
+    </div>
+  </nav>
+</div>
