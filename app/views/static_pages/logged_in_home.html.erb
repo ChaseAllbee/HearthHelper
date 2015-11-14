@@ -10,27 +10,27 @@
 
     <body class="white-bg">
       <div class="row">
-      	<div class="col l4 m6 s12 user info">
-      		<h1>Sterling</h1>
-      		<hr class="half"/>
-      		<h2>Dust: *** </h2>
+      	<div class="col l4 m12 s12 user info">
+      		<h1><%= @user.username %></h1>
+      		<hr class="half thin-hr"/>
+      		<h2>Dust: <%= @user.collection.dust %> </h2>
       	</div>
-      	<div class="col l4 m6 s12 user data">
+      	<div class="col l4 offset-l4 m12 s12 user data">
       		<div class="circle">Data:</div>
       		<div class="circle">Data:</div>
       		<div class="circle">Data:</div>
       	</div>
-      	<div class="col l4 s12 user actions">
+      	<!--<div class="col l4 s12 user actions">
       		<a class="btn waves-effect waves-light" href="#">Manage Collection</a>
       		<a class="btn waves-effect waves-light" href="#">Add More Decks</a>
-      	</div>
+      	</div>-->
       </div>
 
       <div class="decks">
       <div class="row">
       	<div class="col s4 offset-s4">
       		<h4>Tracked Decks</h4>
-      		<hr class="thin-hr half">
+      		<hr class="thin-hr half" id="tracked-decks-line">
       	</div>
       </div>
 		  <div class="row">

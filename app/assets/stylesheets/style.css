@@ -76,6 +76,10 @@ hr {
 	border-top:3px solid #000;
 }
 
+.decks hr{
+	margin: 0 auto;
+
+}
 
 
 
@@ -89,9 +93,6 @@ hr {
 	padding:0;
 }
 
-.splash-wrap h2{
-
-}
 
 .splash-info{
 	margin:18% 25%;
@@ -258,13 +259,10 @@ hr {
 	color:black;
 }
 
-.data, .actions{
+.data, .actions, .info{
 	margin:7% 0 0 0;
 }
 
-.info{
-	margin: 5% 0 0 0;
-}
 
 .user h1{
 	margin:0;
@@ -274,6 +272,10 @@ hr {
 
 .data{
 	text-align: center;
+}
+
+.tracked-deck{
+	width:90%;
 }
 
 .user .circle{
@@ -317,7 +319,7 @@ hr {
 .tracked-deck{
 	margin:0 0 0 8%;
 	color:black;
-	overflow:auto;
+	
 	padding:5px 5px 5px 5px;
 }
 
@@ -331,10 +333,13 @@ hr {
 	line-height: .8em;
 }
 
+br{
+	line-height: .8em;
+}
+
 .tracked-deck .deck-icon{
 	display:inline-block;
 	float:left;
-	width:22%;
 }
 
 .deck-info .progress{
@@ -345,7 +350,7 @@ hr {
 }
 
 .decks{
-	margin: 100px 0 0 0;
+	margin: 50px 0 0 0;
 }
 
 .decks .btn{
@@ -358,6 +363,10 @@ hr {
 .decks h4{
 	text-align: center;
 }
+
+#tracked-decks-line{
+		margin:0 auto;
+	}
 
 
 @media only screen and (min-width : 993px) {
@@ -375,9 +384,6 @@ hr {
 		text-align: center;
 	}
 
-	.tracked-decks{
-		margin:0;
-	}
 }
 
 
