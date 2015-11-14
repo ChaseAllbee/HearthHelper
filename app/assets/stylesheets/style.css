@@ -244,6 +244,11 @@ hr {
 
 /******   Home Page Styles   ******/
 
+.col{
+	display:inline-block;
+	float:left
+}
+
 .white-bg *{
 	color:black;
 }

@@ -27,165 +27,35 @@
       </div>
 
       <div class="decks">
-      <div class="row">
-      	<div class="col s4 offset-s4">
-      		<h4>Tracked Decks</h4>
-      		<hr class="thin-hr half" id="tracked-decks-line">
-      	</div>
-      </div>
-		  <div class="row">
-		  	<div class="col l4 m12 s12">
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">25/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-		  		</figure>
-		  	</div>
-		  	<div class="col l4 m12 s12">
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">15/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-		  		</figure>      		
-		  	</div>
-		  	<div class="col l4 m12 s12">
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">3/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-						</div>
-		  		</figure>
-		  	</div>
-		  </div>
-
-		<div class="row">
-			<div class="col l4 m12 s12">
-				<figure class="tracked-deck btn">
-					<div class="deck-icon">
-						<img class="deck druid circle" src="assets/druidicon.png">
-					</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">17/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-				</figure>
+	      <div class="row">
+	      	<div class="col s4 offset-s4">
+	      		<h4>Tracked Decks</h4>
+	      		<hr class="thin-hr half" id="tracked-decks-line">
+	      	</div>
+	      </div>
+			  <div class="row">
+			  	<% @tracked_decks.each_slice(3) do |slice| %>
+			  		<div class="row">
+			  		<% slice.each do |tracked_deck| %>
+			  		<div class="col l4 m12 s12">
+			  			<figure class="tracked-deck btn">
+			  				<div class="deck-icon">
+			  					<img class="deck druid circle" src="assets/druidicon.png">
+			  				</div>
+			  				<div class="deck-info">
+									<h6><%= tracked_deck.name %></h6>
+									<h6 class="cards-owned">25/30 cards owned</h6>
+				  			<h6>360 dust to craft</h6>
+				  			<div class="progress">
+				  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
+				  				</div>
+								</div>
+			  			</figure>
+			  		</div>
+			  		<% end %>
+			  		</div>
+			  	<% end %>
+				</div>
 			</div>
-			<div class="col l4 m12 s12">
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">23/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-						</div>
-		  		</figure>      		
-			</div>
-			<div class="col l4 m12 s12">
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">21/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-						</div>
-		  		</figure>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col l4 m12 s12">
-				<figure class="tracked-deck btn">
-					<div class="deck-icon">
-						<img class="deck druid circle" src="assets/druidicon.png">
-					</div>
-					<div class="deck-info">
-		  			<h6>Midrange Druid</h6>
-		  			<h6 class="cards-owned">19/30 cards owned</h6>
-		  			<h6>360 dust to craft</h6>
-		  			<div class="progress">
-		  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-		  			</div>
-					</div>
-				</figure>
-			</div>
-			<div class="col l4 m12 s12">
-				<figure class="tracked-deck btn">
-					<div class="deck-icon">
-						<img class="deck druid circle" src="assets/druidicon.png">
-					</div>
-					<div class="deck-info">
-		  			<h6>Midrange Druid</h6>
-		  			<h6 class="cards-owned">28/30 cards owned</h6>
-		  			<h6>360 dust to craft</h6>
-		  			<div class="progress">
-		  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-		  			</div>
-					</div>
-				</figure>      		
-			</div>
-			<div class="col l4 m12 s12">
-				<figure class="tracked-deck btn">
-					<div class="deck-icon">
-						<img class="deck druid circle" src="assets/druidicon.png">
-					</div>
-					<div class="deck-info">
-		  			<h6>Midrange Druid</h6>
-		  			<h6 class="cards-owned">25/30 cards owned</h6>
-		  			<h6>360 dust to craft</h6>
-		  			<div class="progress">
-		  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-		  			</div>
-					</div>
-				</figure>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-      <script type="text/javascript" src="js/app.js"></script>
     </body>
   </html>
-        
