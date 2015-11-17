@@ -78,7 +78,10 @@ hr {
 
 .decks hr{
 	margin: 0 auto;
+}
 
+nav .brand-logo{
+	padding: 0;
 }
 
 
@@ -334,7 +337,7 @@ hr {
 	padding: 0 0 0 1em;
 	display:inline-block;
 	float:left;
-	width:50%;
+	width:65%;
 	line-height: .8em;
 }
 
@@ -402,8 +405,9 @@ br{
 	.tracked-deck h6{
 		font-size: 1.2em;
 	}
+
 	.tracked-deck .deck-icon{
-		width:30%;
+			padding-top: 10px;
 	}
 
 	.actions{
@@ -426,6 +430,11 @@ br{
 
 	.deck-info .progress{
 		width:65%;
+	}
+
+	.circle{
+		width:100px;
+		height:100px;
 	}
 }
 

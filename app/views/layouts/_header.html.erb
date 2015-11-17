@@ -1,6 +1,12 @@
-<div class="navbar-fixed">
+<div class="navbar-fixed z-depth-0">
   <nav>
-    <div class="nav-wrapper">
+    <ul id="nav-mobile" class="side-nav z-depth-1">
+        <li><a href="index.html">home</a></li>
+        <li><a href="#">login/signin</a></li>
+    </ul>
+    
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    <div class="nav-wrapper z-depth-1">
       <%= link_to "Hearth Helper", root_path, class: "brand-logo" %>
       <ul class="right hide-on-med-and-down">
         <li><%= link_to "Home", root_path, class: "waves-effect waves-light" %></li>
@@ -13,11 +19,7 @@
         <% end %>
       </ul>
 
-      <!--<ul id="nav-mobile" class="side-nav">
-        <li><a href="index.html">home</a></li>
-        <li><a href="#">login/signin</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>-->
+
     </div>
   </nav>
 </div>
