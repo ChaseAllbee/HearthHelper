@@ -48,6 +48,21 @@ $( document ).ready(function(){
 		//$(this).siblings("#progress-bar")[0].style.width = percent;
 	});
 
+	$(window).scroll(function() {
+		if(($(".white-bg").scrollTop()) > 0) {
+			$(".nav-wrapper").addClass("z-depth-2");
+			$(".nav-wrapper").removeClass("z-depth-0");
+			$(".nav-wrapper").css("background-color", "white");
+			console.log($(".white-bg").scrollTop());
+		}
+		else if(($(".white-bg").scrollTop()) == 0){
+			$(".nav-wrapper").addClass("z-depth-0");
+			$(".nav-wrapper").removeClass("z-depth-2");
+			$(".nav-wrapper").css("background-color", "transparent");
+			console.log($(".white-bg").scrollTop());
+		}
+	});
+
 
 
 });

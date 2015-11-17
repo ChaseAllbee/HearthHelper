@@ -13,6 +13,10 @@ nav{
 	border: 0px;
 }
 
+nav .nav-wrapper{
+	width:101%;
+}
+
 
 .z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav{
 	box-shadow: none;
@@ -80,9 +84,7 @@ hr {
 	margin: 0 auto;
 }
 
-nav .brand-logo{
-	padding: 0;
-}
+
 
 
 
@@ -257,7 +259,7 @@ nav .brand-logo{
 }
 
 .white-bg nav{
-	background-color: white;
+	background-color: none;
 }
 .white-bg nav ul a, .white-bg .brand-logo{
 	color: black;
@@ -278,12 +280,16 @@ nav .brand-logo{
 	padding:0 0 0 15%;
 }
 
-.data{
-	text-align: center;
+.row .data{
+	text-align: right;
+	padding-right: 5%;
 }
 
 .tracked-deck{
 	width:90%;
+	margin: 2%;
+	color:black;
+	padding:5px 5px 5px 5px;
 }
 
 .user .circle{
@@ -322,13 +328,6 @@ nav .brand-logo{
 
 .deck{
 	border: 1px solid black;
-}
-
-.tracked-deck{
-	margin:0 0 0 8%;
-	color:black;
-	
-	padding:5px 5px 5px 5px;
 }
 
 .tracked-deck h6{
@@ -378,7 +377,9 @@ br{
 
 
 @media only screen and (min-width : 993px) {
-
+	.brand-logo{
+		padding-left: 3%;
+	}
 }
 
 
@@ -390,6 +391,10 @@ br{
 
 	.decks .m12{
 		text-align: center;
+	}
+
+	.info{
+		margin:100px;
 	}
 
 }
