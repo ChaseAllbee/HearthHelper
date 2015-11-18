@@ -183,7 +183,41 @@ nav .button-collapse{
 .intro-wrap3 h4{
 	font-weight: 500;
 	margin: 2% 15% 5% 15%;
+}
+.home-wrap{
+		margin-bottom: 0;
+	}
 
+@media only screen and (min-width : 993px) {
+
+}
+
+
+/** Small Screen **/
+@media only screen and (max-width : 992px){
+
+
+}
+
+
+/** Small Screen **/
+@media only screen and (max-width : 600px){
+	.home-page h2{
+		font-size: 2em;
+		padding:0 40px;
+	}
+	.splash-info{
+		margin: 180px 1% 1% 1%;
+	}
+
+	.home-page h1{
+		font-size: 2.1em;
+	}
+
+	.home-page h4{
+		font-size: 1.9em;
+		line-height: 1.2em;
+	}
 }
 
 

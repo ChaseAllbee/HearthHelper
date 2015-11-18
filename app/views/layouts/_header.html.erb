@@ -1,8 +1,14 @@
 <div class="navbar-fixed">
   <nav>
     <ul id="nav-mobile" class="side-nav z-depth-4">
-        <li><a href="index.html">home</a></li>
-        <li><a href="#">login/signin</a></li>
+         <li><%= link_to "Home", root_path, class: "waves-effect waves-light" %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Decks", '#', class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Collection", '#', class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Sign Out", logout_path, method: "delete", class: "waves-effect waves-light" %></li>
+        <% else %>
+          <li><%= link_to "Sign In", login_path, class: "waves-effect waves-light" %></li>
+        <% end %>
     </ul>
     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 

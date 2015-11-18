@@ -1,5 +1,47 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700,500' rel='stylesheet' type='text/css'>
+      <!--Import materialize.css-->
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <div class="col s12 login-wrap valign-wrapper">
+        <div class="login-signup valign center-align">
+          <h4 class="login-selected" id="login">Login</h4>
+          <h4 class="login-notselected" id="signup">Signup</h4>
+          <div class="input-field">
+            <div id="login-content">
+            <%= form_for(:session, url: login_path) do |f| %>
+                <%= f.email_field :email, class: 'form-control', placeholder: 'email', id: 'login-email'%>
+                <%= f.password_field :password, class: 'form-control', placeholder: 'password', id:'login-password' %>
+                <%= link_to "(forgot password)", new_password_reset_path %>
+                <%= f.submit "Login", class: "btn waves-effect waves-light", id: 'login-button' %>
+              <% end %>
+            </div>
+            <div class="hide" id="signup-content">
+              <input placeholder="username" id="signup-username" type="text">
+              <input placeholder="email" id="signup-email" type="text">
+              <input placeholder="password" id="signup-password" type="text">
+              <input placeholder="confirm password" id="signup-confirmpassword" type="text">
+              <a class="btn waves-effect waves-light" id="signup-button">Signup</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+
+
+
+<!--<h1>Log in</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -22,4 +64,4 @@
 
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
-</div>
+</div> -->
