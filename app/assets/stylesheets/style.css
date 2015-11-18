@@ -84,6 +84,9 @@ hr {
 	margin: 0 auto;
 }
 
+nav .button-collapse{
+	padding-left: 10px;
+}
 
 
 
@@ -281,8 +284,7 @@ hr {
 }
 
 .row .data{
-	text-align: right;
-	padding-right: 5%;
+	text-align: center;
 }
 
 .tracked-deck{
@@ -380,6 +382,11 @@ br{
 	.brand-logo{
 		padding-left: 3%;
 	}
+
+	.row .data{
+		text-align: right;
+		padding-right: 5%;
+	}
 }
 
 
@@ -395,6 +402,10 @@ br{
 
 	.info{
 		margin:100px;
+	}
+
+	nav .brand-logo{
+		padding:0;
 	}
 
 }
