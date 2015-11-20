@@ -8,6 +8,4 @@ class StaticPagesController < ApplicationController
 			render 'logged_out_home'
 		end
   end
-
-  
 end

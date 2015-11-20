@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessor :remember_token, :activation_token, :reset_token
+  attr_accessor :remember_token, :reset_token
   has_one :collection
   has_many :saved_external_decks
   has_many :external_decks, through: :saved_external_decks
