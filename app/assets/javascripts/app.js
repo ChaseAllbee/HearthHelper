@@ -1,10 +1,11 @@
-$( document ).ready(function(){
+var ready = function(){
 	$(".button-collapse").sideNav();
-
+	console.log("in our js");
 	var lemailflag = false;
 	var lpasswordflag = false;
 	//Swap classes for login and sign out depending on which one is selected at the time
 	$("#login").click(function(){
+		console.log("clicked login");
 		if($("#login").hasClass("login-notselected")){
 			$("#login").toggleClass("login-notselected", false);
 			$("#login").toggleClass("login-selected", true);
@@ -16,6 +17,7 @@ $( document ).ready(function(){
 	});
 
 	$("#signup").click(function(){
+		console.log("clicked signup");
 		if($("#signup").hasClass("login-notselected")){
 			$("#signup").toggleClass("login-notselected", false);
 			$("#signup").toggleClass("login-selected", true);
@@ -65,4 +67,7 @@ $( document ).ready(function(){
 
 
 
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
