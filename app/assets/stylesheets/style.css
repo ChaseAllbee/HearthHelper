@@ -90,6 +90,11 @@ nav .button-collapse{
 
 
 
+a:active{
+	color:inherit;
+}
+
+
 
 /******   Splash Page Styles   ******/
 
@@ -270,8 +275,12 @@ nav .button-collapse{
 	color:rgba(255, 255, 255, 1);
 }
 
-.login-notselected{
+.login-notselected a{
 	color:rgba(255, 255, 255, .4);
+}
+
+#links:visited{
+	color:inherit;
 }
 
 #signup-button, #login-button{

@@ -1,24 +1,38 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-    <%= render 'shared/error_messages' %>
 
-      <%= f.label :username %>
-      <%= f.text_field :username, class: 'form-control' %>
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700,500' rel='stylesheet' type='text/css'>
+      <!--Import materialize.css-->
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+    <body>
+      <div class="col s12 login-wrap valign-wrapper">
+        <div class="login-signup valign center-align">
+          <h4 class="login-notselected" id="login"><%= link_to "Login", login_path, :id => "links"%></h4>
+          <h4 class="login-selected" id="signup">Sign up</h4>
+          <div class="input-field">
+            <div id="login-content" class="hide">
+            </div>
+            <div id="signup-content">
+              <%= form_for(@user) do |f| %>
+              <%= render 'shared/error_messages' %>
+                <%= f.text_field :username, class: 'form-control', placeholder: 'username' %>
+                <%= f.email_field :email, class: 'form-control', placeholder: 'email'  %>
+                <%= f.password_field :password, class: 'form-control', placeholder: 'password'  %>
+                <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'confirm password'  %>
+                <%= f.submit "Create my account", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
         
