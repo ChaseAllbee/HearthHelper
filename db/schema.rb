@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012015751) do
+ActiveRecord::Schema.define(version: 20151120230915) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "name"
@@ -30,16 +30,16 @@ ActiveRecord::Schema.define(version: 20151012015751) do
   create_table "collection_card_instances", force: :cascade do |t|
     t.integer  "collection_id"
     t.integer  "card_id"
-    t.integer  "quantity"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "quantity",      default: 1
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "collections", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "dust"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "dust",       default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "external_deck_instances", force: :cascade do |t|
