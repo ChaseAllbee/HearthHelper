@@ -3,7 +3,7 @@
     <ul id="nav-mobile" class="side-nav z-depth-4">
          <li><%= link_to "Home", root_path, class: "waves-effect waves-light" %></li>
         <% if logged_in? %>
-          <li><%= link_to "Decks", '#', class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Decks", decks_path, class: "waves-effect waves-light" %></li>
           <li><%= link_to "Collection", '#', class: "waves-effect waves-light" %></li>
           <li><%= link_to "Sign Out", logout_path, method: "delete", class: "waves-effect waves-light" %></li>
         <% else %>
@@ -17,7 +17,7 @@
       <ul class="right hide-on-med-and-down">
         <li><%= link_to "Home", root_path, class: "waves-effect waves-light" %></li>
         <% if logged_in? %>
-          <li><%= link_to "Decks", '#', class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Decks", decks_path, class: "waves-effect waves-light" %></li>
           <li><%= link_to "Collection", '#', class: "waves-effect waves-light" %></li>
           <li><%= link_to "Sign Out", logout_path, method: "delete", class: "waves-effect waves-light" %></li>
         <% else %>
