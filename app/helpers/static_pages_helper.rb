@@ -56,6 +56,7 @@ module StaticPagesHelper
 		tracked_deck.id
 	end
 
+	# Returns dust total for cards
 	def dust_total(cards)
 		cards.inject(0) do |dust_total, card|
 			dust_total + dust_value(card.rarity)
