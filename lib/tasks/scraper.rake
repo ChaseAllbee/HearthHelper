@@ -6,7 +6,7 @@ namespace :scraper do
     agent = Mechanize.new
     @browser = Watir::Browser.new
     @browser.goto("https://tempostorm.com/hearthstone/meta-snapshot")
-    wait_for_js
+    wait_for_js_home
     click_tier_buttons
     deck_names = get_deck_names
 
@@ -14,6 +14,7 @@ namespace :scraper do
       deck_link.click
 
       @browser.windows[browser_index + 1].use do   # browser.windows[0] is main page
+        wait_for_js_decks
         html = @browser.html
         # Create new mechanize page using watir browser html as input
         page = Mechanize::Page.new(nil, {'content-type' => 'text/html'},
@@ -38,9 +39,14 @@ namespace :scraper do
   end
 end
 
-# Wait until browser finishes loading javascript
-def wait_for_js
+# Wait until browser finishes loading javascript for home
+def wait_for_js_home
   Watir::Wait.until { @browser.div(:id => "tier4").exists? }
+end
+
+# Wait until browser finishes loading javascript for deck pages
+def wait_for_js_decks
+  Watir::Wait.until { @browser.div(:class => "comment-add m-b-sm").exists? }
 end
 
 # Click tier (1-4) buttons to make deck buttons visible
