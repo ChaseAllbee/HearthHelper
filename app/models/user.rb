@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :saved_external_decks
   has_many :external_decks, through: :saved_external_decks
   before_save   :downcase_email
+  after_create :create_collection
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\z/
   validates :username, presence: true, length: { maximum: 20 },
                        format: { with: VALID_USERNAME_REGEX },
@@ -72,5 +73,11 @@ class User < ActiveRecord::Base
     # Converts email to all lower-case
     def downcase_email
       self.email = email.downcase
+    end
+
+    # Initializes user's collection with free cards
+    def create_collection
+      self.build_collection(dust: 0)
+      self.save
     end
 end
