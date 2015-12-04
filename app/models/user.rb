@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_one :collection
   has_many :saved_external_decks
   has_many :external_decks, through: :saved_external_decks
+  has_many :user_decks
   before_save   :downcase_email
   after_create :initialize_collection
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\z/

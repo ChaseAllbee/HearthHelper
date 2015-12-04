@@ -3,6 +3,8 @@ class Card < ActiveRecord::Base
   has_many :external_decks, through: :external_deck_instances
   has_many :collection_card_instances
   has_many :collections, through: :collection_card_instances
+  has_many :user_deck_instances
+  has_many :user_decks, through: :user_deck_instances
   validates :name, presence: true, uniqueness: true
   validates :card_set, presence: true
   validates :rarity, presence: true
