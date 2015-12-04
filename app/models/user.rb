@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :saved_external_decks
   has_many :external_decks, through: :saved_external_decks
   before_save   :downcase_email
-  after_create :create_collection
+  after_create :initialize_collection
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\z/
   validates :username, presence: true, length: { maximum: 20 },
                        format: { with: VALID_USERNAME_REGEX },
@@ -76,8 +76,10 @@ class User < ActiveRecord::Base
     end
 
     # Initializes user's collection with free cards
-    def create_collection
+    def initialize_collection
       self.build_collection(dust: 0)
-      self.save
+      cards = Card.where(rarity: "Free").where(card_set: "Basic")
+      cards.each { |card| self.collection.cards << card }
+      self.collection.save
     end
 end
