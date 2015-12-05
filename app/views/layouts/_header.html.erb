@@ -4,7 +4,7 @@
          <li><%= link_to "Home", root_path, class: "waves-effect waves-light" %></li>
         <% if logged_in? %>
           <li><%= link_to "Decks", decks_path, class: "waves-effect waves-light" %></li>
-          <li><%= link_to "Collection", '#', class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Collection", collection_path, class: "waves-effect waves-light" %></li>
           <li><%= link_to "Sign Out", logout_path, method: "delete", class: "waves-effect waves-light" %></li>
         <% else %>
           <li><%= link_to "Sign In", login_path, class: "waves-effect waves-light" %></li>
@@ -18,7 +18,7 @@
         <li><%= link_to "Home", root_path, class: "waves-effect waves-light" %></li>
         <% if logged_in? %>
           <li><%= link_to "Decks", decks_path, class: "waves-effect waves-light" %></li>
-          <li><%= link_to "Collection", '#', class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Collection", collection_path, class: "waves-effect waves-light" %></li>
           <li><%= link_to "Sign Out", logout_path, method: "delete", class: "waves-effect waves-light" %></li>
         <% else %>
           <li><%= link_to "Sign In", login_path, class: "waves-effect waves-light" %></li>
