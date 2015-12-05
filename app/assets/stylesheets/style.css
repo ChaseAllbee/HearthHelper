@@ -612,3 +612,119 @@ br{
 		margin: 50px 0 0 0;
 	}
 }
+
+/******   Deck Page Styles   ******/
+
+
+.collections-bg{
+	background: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('http://www.wallpaperup.com/uploads/wallpapers/2014/01/05/215905/a67b07b67f8f15bc84a5139c4365a211.jpg');
+	height:100vh;
+	background-position: center;
+	width:99vw;
+	margin:0;
+	padding:0; 
+}
+
+.collection-blur{
+	
+	width:98%;
+	height:98%;
+	/*margin: 10px auto 0;*/
+	top:10px;
+	left:1%;
+	background: linear-gradient( rgba(0, 0, 0, .4), rgba(0, 0, 0, .4) ) ,url('http://www.wallpaperup.com/uploads/wallpapers/2014/01/05/215905/a67b07b67f8f15bc84a5139c4365a211.jpg');
+	background-position:center;	
+	z-index: 1;
+	-webkit-filter: blur(5px);
+	filter: blur(5px);
+	position:absolute;
+}
+
+.collection-page .row{
+	margin-bottom: 0;
+}
+
+.collection-container{
+	width:98%;
+	height:98%;
+	position:relative;
+	top:10px;
+	left:1%;
+	background-color: transparent;
+	border: 1px solid black;
+	z-index: 100;
+	padding: 20px;
+	background: rgb(34,34,34); /* for IE */
+	background: rgba(34,34,34,0.50);
+}
+
+.collections-bg .collection-container .deck-icons{
+	margin: 50px 0 0 50px;
+	z-index: 1000;
+}
+
+.collections-bg .collection-container .deck-icons li{
+	padding: 8px 5px;
+}
+
+.icon-selected{
+	border-bottom-style: solid;
+	border-bottom-color: white;
+	border-bottom-width: 2px;
+
+}
+
+.icon-selected img{
+	opacity: 1;
+}
+
+.deck-icons ul li{
+	display: inline-block;
+}
+
+#class-name{
+	text-align: center;
+	font-weight: 900;
+}
+
+#class-cards{
+	padding:0 0 0 50px;
+}
+
+ #class-cards img{
+  width:140px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+#class-cards ul li{
+	padding:15px;
+	display:inline-block;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

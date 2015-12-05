@@ -1,6 +1,5 @@
 var ready = function(){
 	$(".button-collapse").sideNav();
-	console.log("in our js");
 	var lemailflag = false;
 	var lpasswordflag = false;
 	//Swap classes for login and sign out depending on which one is selected at the time
@@ -65,6 +64,10 @@ var ready = function(){
 		}
 	});
 
+	$(".sort-icon").click(function(){
+		$(".sort-icon").removeClass("icon-selected");
+		$(this).toggleClass("icon-selected", true);
+	});
 
 
 };
