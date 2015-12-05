@@ -19,7 +19,9 @@ namespace :scraper do
         # Create new mechanize page using watir browser html as input
         page = Mechanize::Page.new(nil, {'content-type' => 'text/html'},
                                    html, nil, agent)
-        push_deck_names(deck_names[browser_index])
+        deck_name = deck_names[browser_index]
+        create_external_decks(deck_name)
+        deck_id = ExternalDeck.find_by(name: deck_name).id
 
         @browser.divs(:class => "db-deck-card-qty").each do |qty|
           quantity << qty.text
@@ -29,8 +31,7 @@ namespace :scraper do
         quantity.map! { |num| num == "2" ? "2" : "1" }
 
         page.search(".db-deck-card-name.ng-binding").each_with_index do |card, i|
-          deck_name = deck_names[browser_index]
-          push_deck_cards(deck_name, card.text, quantity[i])
+          push_deck_cards(deck_id, card.text, quantity[i])
         end
       end
     end
@@ -65,13 +66,12 @@ def get_deck_names
 end
 
 # Create ExternalDeck
-def push_deck_names(deck_name)
-  ExternalDeck.find_or_create_by(name: deck_name)
+def create_external_decks(deck_name)
+  ExternalDeck.find_or_create_by(name: deck_name, deck_class: class_name)
 end
 
 # Add deck card names + quantity associated to each ExternalDeck
-def push_deck_cards(deck_name, card_name, quantity)
-  deck_id = ExternalDeck.find_by(name: deck_name).id
+def push_deck_cards(deck_id, card_name, quantity)
   puts card_name
   if card_name == "Ancestors Call"
     card_id = Card.find_by(name: "Ancestor's Call").id
@@ -83,4 +83,10 @@ def push_deck_cards(deck_name, card_name, quantity)
   ExternalDeckInstance.find_or_create_by(external_deck_id: deck_id,
                                          card_id: card_id,
                                          quantity: quantity)
+end
+
+# Get class name
+def class_name
+  div = @browser.divs(:class => "bg-override")[0]
+  class_name = div.class_name.split[1].capitalize
 end
