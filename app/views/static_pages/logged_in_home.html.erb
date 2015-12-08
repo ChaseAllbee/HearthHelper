@@ -35,24 +35,26 @@
 	      	</div>
 	      </div>
 			  <div class="row">
-			  	<% @tracked_decks.each_slice(3).with_index do |slice, index| %>
+			  	<% @tracked_decks.each_slice(3).with_index do |slice, slice_idx| %>
 			  		<div class="row">
-			  		<% slice.each do |tracked_deck| %>
-			  		<div class="col l4 m12 s12">
-			  			<figure class="tracked-deck btn">
-			  				<div class="deck-icon">
-			  					<img class="deck druid circle" src="assets/druidicon.png">
-			  				</div>
-			  				<div class="deck-info">
-									<h6><%= tracked_deck.name %></h6>
-									<h6 class="cards-owned"><%= @num_owned[index] %>/30 cards owned</h6>
-				  			<h6><%= @dust_to_craft[index] %> dust to craft</h6>
-				  			<div class="progress">
-				  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-				  				</div>
-								</div>
-			  			</figure>
-			  		</div>
+			  		<% slice.each_with_index do |tracked_deck, deck_idx| %>
+  			  		<div class="col l4 m12 s12">
+  			  			<figure class="tracked-deck btn">
+  			  				<div class="deck-icon">
+  			  					<img class="deck druid circle" src="assets/druidicon.png">
+  			  				</div>
+  			  				<div class="deck-info">
+  									<h6><%= tracked_deck.name %></h6>
+  								  <h6 class="cards-owned"><%= @num_owned[deck_idx + slice_idx * 3] %>
+                      /30 cards owned</h6>
+    				  			<h6><%= @dust_to_craft[deck_idx + slice_idx * 3] %>
+                      dust to craft</h6>
+    				  			<div class="progress">
+    				  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
+    				  			</div>
+  								</div>
+  			  			</figure>
+  			  		</div>
 			  		<% end %>
 			  		</div>
 			  	<% end %>

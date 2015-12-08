@@ -5,7 +5,7 @@ module StaticPagesHelper
 	def quantity_same_query(coll_id, tracked_deck_id)
 		Card.joins(:external_deck_instances).joins(:collection_card_instances)
 				.where("collection_id = ? and external_deck_id = ? and
-								external_deck_instances.quantity <= 
+								external_deck_instances.quantity <=
 								collection_card_instances.quantity",
 								coll_id, tracked_deck_id
 							)
@@ -15,9 +15,10 @@ module StaticPagesHelper
 	# deck qty != collection qty
 	def quantity_diff_query(coll_id, tracked_deck_id)
 		Card.joins(:external_deck_instances).joins(:collection_card_instances)
-				.where("collection_id = ? and external_deck_id = ? and 
-								external_deck_instances.quantity != 
-								collection_card_instances.quantity",
+				.where("collection_id = ? and external_deck_id = ? and
+								external_deck_instances.quantity !=
+								collection_card_instances.quantity and
+								collection_card_instances.quantity = 1",
 								coll_id, tracked_deck_id
 							)
 	end
@@ -28,7 +29,7 @@ module StaticPagesHelper
 															.where("collection_id = ?", coll_id)
 									 						.select("cards.id").to_sql
 		Card.joins(:external_deck_instances)
-				.where("external_deck_id = ? and 
+				.where("external_deck_id = ? and
 								cards.id NOT IN (#{cards_in_collection})", tracked_deck_id
 							)
 	end
@@ -37,7 +38,15 @@ module StaticPagesHelper
 	def num_cards_owned(tracked_deck)
 		@quantity_same_cards = quantity_same_query(coll_id, tracked_deck_id(tracked_deck))
 		@quantity_diff_cards = quantity_diff_query(coll_id, tracked_deck_id(tracked_deck))
-		@quantity_same_cards.count + @quantity_diff_cards.count
+		same_card_count = @quantity_same_cards.inject(0) do |quantity, card|
+			quantity + card_quantity(card)
+		end
+		same_card_count + @quantity_diff_cards.count
+	end
+
+	# Returns quantity of specified card
+	def card_quantity(card)
+		ExternalDeckInstance.find_by(card_id: card.id).quantity
 	end
 
 	# Calculates dust needed to craft remainder of deck
