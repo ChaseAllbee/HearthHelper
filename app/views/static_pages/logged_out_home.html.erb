@@ -1,0 +1,60 @@
+<% provide(:title, "Home") %>
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700,500' rel='stylesheet' type='text/css'>
+      <!--Import materialize.css-->
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body class="home-page">
+      <div class="row home-wrap">
+          <div class="col s12 splash-wrap">
+            <div class="splash-info">
+              <h2>Hey, need some help with your collection? We got you covered.</h2>
+              <a><%= link_to "Signup or login", login_path, class: "btn waves-effect waves-light" %></a>
+            </div>
+          </div>
+      </div>
+      <div class="row intro-wrap1">
+	      <div class="col s12 l7">
+	        <h1 id="derp">What's Hearth Helper, you might ask?</h1>
+	      </div>
+	      <div class="col s12 l6">
+	        <h4>Hearth Helper is a tool designed and coded by two strapping young lads to help keep track of Hearthstone decks. This means being able to see how far away you are from crafting a deck so that you can get the most bang for your buck!</h4>
+	      </div>
+	    </div>
+	    <div class="row intro-wrap2">
+	      <div class="col l7 push-l5 s12">
+	        <h1 id="derp">Why would I use Hearth Helper?</h1>
+	      </div>
+	        <div class="col s12 l6 push-l6">
+	          <h4>Because you’re clever! And you’re pretty! But really Hearth Helper takes the hassle out of tracking what decks you want to build and lets you know when you can craft them. We even are displying the most popular decks according to TempoStorm, so you can stay on top of what’s hot. </h4>
+	        </div>
+	    </div>
+	    <div class="row intro-wrap3">
+	      <div class="col s12">
+	          <h1 id="derp">Hey everyone, get in here!</h1>
+	      </div>
+	      <div class="col s12">
+	      	<h4>So are you ready to become that much more efficient with your dust and your time? Of course you are. Lets get tracking shall we?</h4>
+	      	<a><%= link_to "Signup or login", login_path, class: "btn waves-effect waves-light" %></a>
+            </div>
+          </div>
+    </body>
+  </html>
+
+<!--<div class="white-bg">
+	<div class="center jumbotron">
+	<h1>Hearth Helper</h1>
+	  <h2>
+	    This is the home page for Hearth Helper.
+	  </h2>
+	  <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
+	  <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+	</div>
+</div> -->

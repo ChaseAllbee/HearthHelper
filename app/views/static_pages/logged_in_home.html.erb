@@ -1,0 +1,64 @@
+<% provide(:title, "Home") %>
+
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700,500' rel='stylesheet' type='text/css'>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body class="white-bg">
+      <div class="row">
+      	<div class="col l4 m12 s12 user info">
+      		<h1><%= @user.username %></h1>
+      		<hr class="half thin-hr"/>
+      		<h2>Dust: <%= @user.collection.dust %> </h2>
+      	</div>
+      	<div class="col l6 offset-l2 m12 s12 user data">
+      		<div class="circle">Data:</div>
+      		<div class="circle">Data:</div>
+      		<div class="circle">Data:</div>
+      	</div>
+      	<!--<div class="col l4 s12 user actions">
+      		<a class="btn waves-effect waves-light" href="#">Manage Collection</a>
+      		<a class="btn waves-effect waves-light" href="#">Add More Decks</a>
+      	</div>-->
+      </div>
+
+      <div class="decks">
+	      <div class="row">
+	      	<div class="col s4 offset-s4">
+	      		<h4>Tracked Decks</h4>
+	      		<hr class="thin-hr half" id="tracked-decks-line">
+	      	</div>
+	      </div>
+			  <div class="row">
+			  	<% @tracked_decks.each_slice(3).with_index do |slice, slice_idx| %>
+			  		<div class="row">
+			  		<% slice.each_with_index do |tracked_deck, deck_idx| %>
+  			  		<div class="col l4 m12 s12">
+  			  			<figure class="tracked-deck btn">
+  			  				<div class="deck-icon">
+  			  					<img class="deck druid circle" src="assets/druidicon.png">
+  			  				</div>
+  			  				<div class="deck-info">
+  									<h6><%= tracked_deck.name %></h6>
+  								  <h6 class="cards-owned"><%= @num_owned[deck_idx + slice_idx * 3] %>
+                      /30 cards owned</h6>
+    				  			<h6><%= @dust_to_craft[deck_idx + slice_idx * 3] %>
+                      dust to craft</h6>
+    				  			<div class="progress">
+    				  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
+    				  			</div>
+  								</div>
+  			  			</figure>
+  			  		</div>
+			  		<% end %>
+			  		</div>
+			  	<% end %>
+				</div>
+			</div>
+    </body>
+  </html>

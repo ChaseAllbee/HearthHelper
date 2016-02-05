@@ -6,11 +6,4 @@ class StaticPagesControllerTest < ActionController::TestCase
     assert_response :success
     assert_select "title", "Home - Hearth Helper"
   end
-
-  test "should get contact" do
-    get :contact
-    assert_response :success
-    assert_select "title", "Contact - Hearth Helper"
-  end
-
 end

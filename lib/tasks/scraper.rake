@@ -6,7 +6,7 @@ namespace :scraper do
     agent = Mechanize.new
     @browser = Watir::Browser.new
     @browser.goto("https://tempostorm.com/hearthstone/meta-snapshot")
-    wait_for_js
+    wait_for_js_home
     click_tier_buttons
     deck_names = get_deck_names
 
@@ -14,11 +14,14 @@ namespace :scraper do
       deck_link.click
 
       @browser.windows[browser_index + 1].use do   # browser.windows[0] is main page
+        wait_for_js_decks
         html = @browser.html
         # Create new mechanize page using watir browser html as input
         page = Mechanize::Page.new(nil, {'content-type' => 'text/html'},
                                    html, nil, agent)
-        push_deck_names(deck_names[browser_index])
+        deck_name = deck_names[browser_index]
+        create_external_decks(deck_name)
+        deck_id = ExternalDeck.find_by(name: deck_name).id
 
         @browser.divs(:class => "db-deck-card-qty").each do |qty|
           quantity << qty.text
@@ -28,8 +31,7 @@ namespace :scraper do
         quantity.map! { |num| num == "2" ? "2" : "1" }
 
         page.search(".db-deck-card-name.ng-binding").each_with_index do |card, i|
-          deck_name = deck_names[browser_index]
-          push_deck_cards(deck_name, card.text, quantity[i])
+          push_deck_cards(deck_id, card.text, quantity[i])
         end
       end
     end
@@ -38,9 +40,14 @@ namespace :scraper do
   end
 end
 
-# Wait until browser finishes loading javascript
-def wait_for_js
+# Wait until browser finishes loading javascript for home
+def wait_for_js_home
   Watir::Wait.until { @browser.div(:id => "tier4").exists? }
+end
+
+# Wait until browser finishes loading javascript for deck pages
+def wait_for_js_decks
+  Watir::Wait.until { @browser.div(:class => "comment-add m-b-sm").exists? }
 end
 
 # Click tier (1-4) buttons to make deck buttons visible
@@ -59,20 +66,27 @@ def get_deck_names
 end
 
 # Create ExternalDeck
-def push_deck_names(deck_name)
-  ExternalDeck.find_or_create_by(name: deck_name)
+def create_external_decks(deck_name)
+  ExternalDeck.find_or_create_by(name: deck_name, deck_class: class_name)
 end
 
 # Add deck card names + quantity associated to each ExternalDeck
-def push_deck_cards(deck_name, card_name, quantity)
-  deck_id = ExternalDeck.find_by(name: deck_name).id
+def push_deck_cards(deck_id, card_name, quantity)
   puts card_name
   if card_name == "Ancestors Call"
     card_id = Card.find_by(name: "Ancestor's Call").id
+  elsif card_name == "Bouncing Blades"
+    card_id = Card.find_by(name: "Bouncing Blade").id
   else
     card_id = Card.find_by(name: card_name).id
   end
   ExternalDeckInstance.find_or_create_by(external_deck_id: deck_id,
                                          card_id: card_id,
                                          quantity: quantity)
+end
+
+# Get class name
+def class_name
+  div = @browser.divs(:class => "bg-override")[0]
+  class_name = div.class_name.split[1].capitalize
 end

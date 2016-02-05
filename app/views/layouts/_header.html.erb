@@ -1,17 +1,31 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Hearth Helper", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
-        <li><%= link_to "Decks",  '#' %></li>
+<div class="navbar-fixed">
+  <nav>
+    <ul id="nav-mobile" class="side-nav z-depth-4">
+         <li><%= link_to "Home", root_path, class: "waves-effect waves-light" %></li>
         <% if logged_in? %>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+          <li><%= link_to "Decks", decks_path, class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Collection", collection_path, class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Sign Out", logout_path, method: "delete", class: "waves-effect waves-light" %></li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Sign In", login_path, class: "waves-effect waves-light" %></li>
+        <% end %>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    <div class="nav-wrapper">
+      <%= link_to "Hearth Helper", root_path, class: "brand-logo" %>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to "Home", root_path, class: "waves-effect waves-light" %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Decks", decks_path, class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Collection", collection_path, class: "waves-effect waves-light" %></li>
+          <li><%= link_to "Sign Out", logout_path, method: "delete", class: "waves-effect waves-light" %></li>
+        <% else %>
+          <li><%= link_to "Sign In", login_path, class: "waves-effect waves-light" %></li>
         <% end %>
       </ul>
-    </nav>
-  </div>
-</header>
+
+
+    </div>
+  </nav>
+</div>

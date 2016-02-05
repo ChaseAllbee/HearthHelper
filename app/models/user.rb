@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
-  attr_accessor :remember_token, :activation_token, :reset_token
+  attr_accessor :remember_token, :reset_token
+  has_one :collection
+  has_many :saved_external_decks
+  has_many :external_decks, through: :saved_external_decks
+  has_many :user_decks
   before_save   :downcase_email
-  before_create :create_activation_digest
+  after_create :initialize_collection
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\z/
   validates :username, presence: true, length: { maximum: 20 },
                        format: { with: VALID_USERNAME_REGEX },
@@ -43,17 +47,6 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
 
-  # Activates an account
-  def activate
-    update_attribute(:activated,    true)
-    update_attribute(:activated_at, Time.zone.now)
-  end
-
-  # Sends activation email
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
-  end
-
   # Sets the password reset attributes
   def create_reset_digest
     self.reset_token = User.new_token
@@ -71,11 +64,6 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
-  # Uses username instead of id for routes
-  def to_param
-    username
-  end
-
   private
 
     # Converts email to all lower-case
@@ -83,9 +71,11 @@ class User < ActiveRecord::Base
       self.email = email.downcase
     end
 
-    # Creates and assigns the activation token and digest
-    def create_activation_digest
-      self.activation_token  = User.new_token
-      self.activation_digest = User.digest(activation_token)
+    # Initializes user's collection with free cards
+    def initialize_collection
+      self.build_collection(dust: 0)
+      cards = Card.where(rarity: "Free").where(card_set: "Basic")
+      cards.each { |card| self.collection.cards << card }
+      self.collection.save
     end
 end
