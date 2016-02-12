@@ -123,7 +123,7 @@ a:active{
 	background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('http://i1-news.softpedia-static.com/images/news2/Blizzard-Gives-Hearthstone-Players-3-Boosters-to-Celebrate-Goblins-vs-Gnomes-Launch-466938-7.jpg');
 	background-size:cover;
 	background-position: center;
-	height:100vh;
+	min-height:100vh;
 	width:99vw;
 	margin:0;
 	padding:0;
@@ -147,8 +147,8 @@ a:active{
 	background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('https://wallpaperscraft.com/image/paladin_hearthstone_uther_95376_1920x1080.jpg');
 	background-size:cover;
 	background-position: center;
-	height:100vh;
-	width:99vw;
+	min-height:100vh;
+	width:100vw;
 	margin:0;
 	padding:0;
 }
@@ -173,13 +173,16 @@ a:active{
 	background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('http://www.hearthstonetopdecks.com/images/wallpaper/wilfred-fizzlebang-wp-1920x1080.jpg');
 	background-size:cover;
 	background-position: center;
-	height:100vh;
-	width:99vw;
+	min-height:100vh;
+	width:100vw;
 	margin:0;
 	padding:0;
 	text-align: center;
 }
 
+.home-card p{
+	positio:relative;
+}
 
 .intro-wrap3 h1{
 	font-size: 7.5em;
