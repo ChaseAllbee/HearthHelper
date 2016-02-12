@@ -1,17 +1,4 @@
 <% provide(:title, "Log in") %>
-
-<!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700,500' rel='stylesheet' type='text/css'>
-      <!--Import materialize.css-->
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-
     <body>
       <div class="col s12 login-wrap valign-wrapper">
         <div class="login-signup valign center-align">
@@ -26,15 +13,7 @@
                 <%= f.submit "Login", class: "btn waves-effect waves-light", id: 'login-button' %>
               <% end %> 
             </div>
-            <div class="hide" id="signup-content">
-              <input placeholder="username" id="signup-username" type="text">
-              <input placeholder="email" id="signup-email" type="text">
-              <input placeholder="password" id="signup-password" type="text">
-              <input placeholder="confirm password" id="signup-confirmpassword" type="text">
-              <a class="btn waves-effect waves-light" id="signup-button">Signup</a>
-            </div>
           </div>
         </div>
       </div>
     </body>
-  </html>
