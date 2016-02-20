@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207103912) do
+ActiveRecord::Schema.define(version: 20160214083407) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "name"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20151207103912) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "deck_class"
+    t.integer  "tier"
   end
 
   create_table "saved_external_decks", force: :cascade do |t|
