@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214083407) do
+ActiveRecord::Schema.define(version: 20160221095201) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "name"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160214083407) do
   end
 
   add_index "saved_external_decks", ["external_deck_id"], name: "index_saved_external_decks_on_external_deck_id"
+  add_index "saved_external_decks", ["user_id", "external_deck_id"], name: "index_saved_external_decks_on_user_id_and_external_deck_id", unique: true
   add_index "saved_external_decks", ["user_id"], name: "index_saved_external_decks_on_user_id"
 
   create_table "user_deck_instances", force: :cascade do |t|
