@@ -1,7 +1,7 @@
-<div id="follow_form">
+<div id="save_form">
 <% if current_user.saved?(@deck) %>
-  <%= render 'unfollow' %>
+  <%= render 'unsave' %>
 <% else %>
-  <%= render 'follow' %>
+  <%= render 'save' %>
 <% end %>
 </div>

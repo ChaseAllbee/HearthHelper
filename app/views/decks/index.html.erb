@@ -73,21 +73,23 @@
       			<hr class="half"/>
       			<% @meta_decks.each_slice(3).with_index do |slice, slice_idx| %>
       				<% slice.each_with_index do |meta_deck, deck_idx| %>
-				  			<figure class="tracked-deck btn">
-				  				<div class="deck-icon">
-				  					<img class="deck druid circle" src="assets/druidicon.png">
-				  				</div>
-				  				<div class="deck-info">
-										<h6><%= meta_deck.name %></h6>
-									  	<h6 class="cards-owned"><%= @num_owned[deck_idx + slice_idx * 3] %>
-									  	/30 cards owned</h6>
-	  				  					<h6><%= @dust_to_craft[deck_idx + slice_idx * 3] %>
-	                    				dust to craft</h6>
-	  				  				<div class="progress">
-	  				  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
-	  				  				</div>
-								</div>
-							</figure>
+				  			<a><%= link_to deck_path(meta_deck) do %>
+					  			<figure class="tracked-deck btn">
+					  				<div class="deck-icon">
+					  					<img class="deck druid circle" src="assets/druidicon.png">
+					  				</div>
+					  				<div class="deck-info">
+											<h6><%= meta_deck.name %></h6>
+										  	<h6 class="cards-owned"><%= @num_owned[deck_idx + slice_idx * 3] %>
+										  	/30 cards owned</h6>
+		  				  					<h6><%= @dust_to_craft[deck_idx + slice_idx * 3] %>
+		                    				dust to craft</h6>
+		  				  				<div class="progress">
+		  				  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
+		  				  				</div>
+									</div>
+								</figure>
+							<% end %></a>
 
 						<% end %>
 						<% end %>
