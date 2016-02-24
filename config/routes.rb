@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :users
-  resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :cards,               only: [:new, :create]
+  resources :password_resets,      only: [:new, :create, :edit, :update]
+  resources :cards,                only: [:new, :create]
   resources :decks
-  resource :collection,           only: [:show]
+  resources :saved_external_decks, only: [:create, :destroy]
+  resource  :collection,           only: [:show]
 end

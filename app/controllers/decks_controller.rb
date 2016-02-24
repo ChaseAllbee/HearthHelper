@@ -16,5 +16,6 @@ class DecksController < ApplicationController
   end
 
   def show
+    @deck = ExternalDeck.find(params[:id])
   end
 end
