@@ -10,5 +10,8 @@ class ExternalDeck < ActiveRecord::Base
                                                    greater_than: 0,
                                                    less_than: 5
                                                  }
-
+  # Returns the quantity of a given card for the deck
+  def quantity(card)
+    external_deck_instances.find_by(card_id: card.id).quantity
+  end
 end
