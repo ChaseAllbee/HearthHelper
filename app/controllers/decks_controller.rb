@@ -17,9 +17,7 @@ class DecksController < ApplicationController
 
   def show
     @deck = ExternalDeck.find(params[:id])
-    @dust_to_craft = []
-    @num_owned = []
-    @num_owned << num_cards_owned(@deck)
-    @dust_to_craft << dust_needed(@deck)
+    @num_owned = num_cards_owned(@deck)
+    @dust_to_craft = dust_needed(@deck)
   end
 end

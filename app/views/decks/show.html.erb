@@ -1,4 +1,19 @@
 <% provide(:title, @deck.name) %>
-<br><br><br>
-<h1>You did it!</h1>
-<%= render 'save_form' %>
+<div class="deck-background-image"></div>
+	<div id="mask"></div>
+</div>
+	<div class="decks-page">
+		<br><br><br>
+		<h2><%= @deck.name %></h2>
+		<ul>
+			<% @deck.cards.each do |card| %>
+			<li><%= "#{card.name}" + '-' + "#{@deck.quantity(card)}"%></li>
+			<% end %>
+		</ul>
+		<%= @deck.tier %>
+		<%= @deck.deck_class %>
+		<%= @dust_to_craft %>
+		<%= @num_owned %>
+		<%= render 'save_form' %>
+	</div>
+</div>
