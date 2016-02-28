@@ -1,7 +1,6 @@
 namespace :scraper do
   desc "Run scraper"
   task :scrape => :environment do
-    quantity = []
     deck_names = []
     agent = Mechanize.new
     @browser = Watir::Browser.new
@@ -13,6 +12,7 @@ namespace :scraper do
       deck_names = get_deck_names
 
       @browser.buttons(:class => "deck-button").each_with_index do |deck_link, browser_index|
+        quantity = []
         if deck_link.visible?
           deck_link.click
 
@@ -34,6 +34,7 @@ namespace :scraper do
             quantity.map! { |num| num == "2" ? "2" : "1" }
 
             page.search(".db-deck-card-name.ng-binding").each_with_index do |card, i|
+              puts "#{deck_name}" + " #{card.text}" + " " "qty: " + "#{quantity[i]}"
               push_deck_cards(deck_id, card.text, quantity[i])
             end
           end
