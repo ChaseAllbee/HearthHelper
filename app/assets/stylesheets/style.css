@@ -481,6 +481,9 @@ br{
 		margin:0 auto;
 	}
 
+.max-weight{
+	font-weight: 700;
+}
 
 @media only screen and (min-width : 993px) {
 	.brand-logo{
@@ -769,7 +772,7 @@ br{
 	width:100vw;
 	height:100vh;
 	overflow:hidden;
-	position:absolute;;
+	position:absolute;
 }
 
 .deck-background-image{
@@ -778,21 +781,22 @@ br{
 	background-image: url('http://hearthstonechampion.com/wp-content/uploads/2015/05/warlock.jpg');
 	background-position:center;
 	background-size: cover;
+	position:absolute;
 }
 
 #mask {
 	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	background-color: black;
-	filter: blur(5px);
-	-webkit-filter: blur(5px);
-	-moz-filter: blur(5px);
-	-o-filter: blur(5px);
-	-ms-filter: blur(5px);
-	filter: url('data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' ><filter id='svgMask'><feGaussianBlur stdDeviation='10' /></filter></svg>#svgMask');
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    filter: blur(5px);
+    opacity: .8;
+    width: 95%;
+    height: 95%;
+    margin: auto auto;
+    /* -webkit-filter: blur(5px); */
 }
 
 .deck-background-darken{
@@ -801,6 +805,25 @@ br{
 	position:absolute;
 	background-color: rgba(0,0,0,.7);
 }
+
+.deck-wrapper{
+	width: 95%;
+	height: 95%;
+	margin: auto auto;
+	padding: 70px;
+}
+
+.deck-wrapper hr{
+	background-color: white;
+	margin: -23px 0 0;
+}
+
+.card-ul li{
+	border-bottom: solid white 1px;
+	background-color:rgba(200, 200, 200, 0.5)
+}
+
+
 
 
 
