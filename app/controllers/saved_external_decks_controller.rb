@@ -2,7 +2,7 @@ class SavedExternalDecksController < ApplicationController
 
   def create
     @deck = ExternalDeck.find(params[:deck_id])
-    current_user.save(@deck)
+    current_user.track(@deck)
     respond_to do |format|
       format.html { redirect_to @deck }
       format.js
@@ -11,7 +11,7 @@ class SavedExternalDecksController < ApplicationController
 
   def destroy
     @deck = SavedExternalDeck.find_by(params[:id])
-    current_user.unsave(@deck)
+    current_user.untrack(@deck)
     respond_to do |format|
       format.html { redirect_to deck_path(deck.external_deck_id) }
       format.js

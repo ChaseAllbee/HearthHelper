@@ -1,5 +1,5 @@
 <%= form_for(current_user.saved_external_decks.find_by(external_deck_id: @deck.id),
              html: { method: :delete },
              remote: true) do |f| %>
-  <%= f.submit "Unsave", class: "user btn" %>
+  <%= f.submit "Untrack", class: "user btn" %>
 <% end %>

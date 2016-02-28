@@ -65,17 +65,17 @@ class User < ActiveRecord::Base
   end
 
   # Tracks deck for current user
-  def save(deck)
+  def track(deck)
     saved_external_decks.create(external_deck_id: deck.id)
   end
 
   # Untracks deck for current user
-  def unsave(deck)
+  def untrack(deck)
     saved_external_decks.find(deck.id).destroy
   end
 
   # Returns true if the current user is following the deck
-  def saved?(deck)
+  def tracked?(deck)
     external_decks.include?(deck)
   end
 
