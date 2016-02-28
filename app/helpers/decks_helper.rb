@@ -5,6 +5,7 @@ module DecksHelper
 		mana_costs = Array.new(9, 0)
 		@deck.cards.each do |card|
 			cost = card.cost
+			cost = 8 if cost > 8
 			mana_costs[cost] += @deck.quantity(card)
 		end
 		return mana_costs
