@@ -64,15 +64,15 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
-  # # Tracks deck for current user
-  # def save(deck)
-  #   saved_external_decks.create(external_deck_id: deck.id)
-  # end
+  # Tracks deck for current user
+  def save(deck)
+    saved_external_decks.create(external_deck_id: deck.id)
+  end
 
-  # # Untracks deck for current user
-  # def unsave(deck)
-  #   saved_external_decks.find(deck.id).destroy
-  # end
+  # Untracks deck for current user
+  def unsave(deck)
+    saved_external_decks.find(deck.id).destroy
+  end
 
   # Returns true if the current user is following the deck
   def saved?(deck)
