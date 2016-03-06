@@ -793,8 +793,8 @@ br{
     background-color: black;
     filter: blur(5px);
     opacity: .8;
-    width: 95%;
-    height: 95%;
+    width: 98%;
+    height: 98%;
     margin: auto auto;
     /* -webkit-filter: blur(5px); */
 }
@@ -814,13 +814,46 @@ br{
 }
 
 .deck-wrapper hr{
-	background-color: white;
-	margin: -23px 0 0;
+	border-top: 3px solid white;
+	margin: -20px 0 0;
+}
+
+.deck-wrapper h2{
+	font-weight:700;
+	font-size: 2.7em;
+}
+
+.deck-page-module{
+		background-color:rgba(200, 200, 200, 0.5);
 }
 
 .card-ul li{
 	border-bottom: solid white 1px;
-	background-color:rgba(200, 200, 200, 0.5)
+	background-color:rgba(200, 200, 200, 0.5);
+}
+
+.card-ul li p{
+	display:inline;
+	font-size: .9em;
+	margin:0;
+}
+
+.card-ul li p:nth-child(1){
+	font-weight: 700;
+	padding:0 20px 0 10px;
+}
+
+.card-ul li p:nth-child(1){
+	font-weight: 700;
+}
+
+.card-ul li p:nth-child(3){
+	float:right;
+	padding-right:10px;
+}
+
+.tracking-column{
+	
 }
 
 

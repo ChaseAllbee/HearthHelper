@@ -14,19 +14,34 @@
 		</div>
 		<div class="row">
 			<div class="col s4">
+				<h6>Cards</h6>
 				<ul class="card-ul">
 					<% @deck.cards.each do |card| %>
-					<li><%="#{card.cost}"+"-"+ "#{card.name}" + '-' + "#{@deck.quantity(card)}"%></li>
+					<li><p><%="#{card.cost}"%></p> 
+							<p><%="#{card.name}"%></p>
+							<p><%= "x " + "#{@deck.quantity(card)}"%><p></li>
 					<% end %>
 				</ul>
 			</div>
 			<div class="col s4">
+					<h6>Stats</h6>
+					<div class="col s12">
+						<div class="deck-page-module">
+
+						</div>
+					</div>
+					<h6>Mana Curve</h6>
+					<div class="col s12">
+						<div class="deck-page-module">
+
+						</div>
+					</div>
 				<%= @deck.tier %>
 				<%= @deck.deck_class %>
 				<%= @dust_to_craft %>
 				<%= @num_owned %>
 			</div>
-			<div class="col s4">
+			<div class="col s4 tracking-column">
 				<%= render 'track_form' %>
 			</div>
 		</div>
