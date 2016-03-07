@@ -743,6 +743,10 @@ br{
 	opacity: 1;
 }
 
+.deck-icons .btn-floating{
+	background-color:transparent;
+}
+
 .deck-icons ul li{
 	display: inline-block;
 }
