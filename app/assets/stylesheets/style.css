@@ -94,13 +94,13 @@ nav .button-collapse{
 
 a:active{ color:inherit; }
 
-.Druid{ background-color: #997B50; }
+.Druid{ background-color: #27ae60; }
 
-.Hunter{ background-color: #27ae60; }
+.Hunter{ background-color: #306952; }
 
 .Mage{ background-color: #3498db; }
 
-.Paladin{ background-color: #f1c40f; }
+.Paladin{ background-color: #F1DF4F; }
 
 .Priest{ background-color: #ecf0f1; }
 
@@ -108,11 +108,11 @@ a:active{ color:inherit; }
 
 .Rogue{ background-color: #2c3e50; }
 
-.Shaman{ background-color: #2980b9; }
+.Shaman{ background-color: #00558E; }
 
-.Warlock{ background-color: #9b59b6; }
+.Warlock{ background-color: #A05CB6; }
 
-.Warrior{ background-color: #c0392b; }
+.Warrior{ background-color: #E14D4C; }
 
 
 /******   Splash Page Styles   ******/
@@ -380,7 +380,7 @@ a:active{ color:inherit; }
 }
 
 .white-bg{
-	background-color:#E6E6E6;
+	background-color:#F6F6F6;
 }
 
 .white-bg nav{
