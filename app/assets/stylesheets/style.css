@@ -41,7 +41,7 @@ nav ul a{
 .btn{
 	background-color: transparent;
 	color:white;
-	border: thin solid white;
+
 	font-weight:600;
 	margin:30px 0;
 }
@@ -53,6 +53,10 @@ nav ul a{
 .row .col{
 	padding: 0;
 	margin-bottom: 0;
+}
+
+.numbers{
+	font-family: 'Open Sans';
 }
 
 .gap6{
@@ -88,12 +92,27 @@ nav .button-collapse{
 	padding-left: 10px;
 }
 
+a:active{ color:inherit; }
 
+.Druid{ background-color: #997B50; }
 
-a:active{
-	color:inherit;
-}
+.Hunter{ background-color: #27ae60; }
 
+.Mage{ background-color: #3498db; }
+
+.Paladin{ background-color: #f1c40f; }
+
+.Priest{ background-color: #ecf0f1; }
+
+.Priest h6 i{ color:black !important; }
+
+.Rogue{ background-color: #2c3e50; }
+
+.Shaman{ background-color: #2980b9; }
+
+.Warlock{ background-color: #9b59b6; }
+
+.Warrior{ background-color: #c0392b; }
 
 
 /******   Splash Page Styles   ******/
@@ -360,11 +379,25 @@ a:active{
 	color:black;
 }
 
+.white-bg{
+	background-color:#E6E6E6;
+}
+
 .white-bg nav{
 	background-color: none;
 }
 .white-bg nav ul a, .white-bg .brand-logo{
 	color: black;
+}
+
+.home .decks h4{
+	text-align: center;
+	margin: 10px 0;
+}
+
+.home .decks hr{
+	width:50%;
+
 }
 
 .user{
@@ -387,24 +420,42 @@ a:active{
 }
 
 .tracked-deck{
-	width:90%;
-	margin: 2%;
+	background-color: white;
+	width:85%;
+	margin: 2% 2% 2% 7%;
 	color:black;
 	padding:5px 5px 5px 5px;
 }
 
+.tracked-deck .deck-class-bar{
+	width:100%;
+	height:40px;
+	border-radius: 5px 5px 0 0;
+	color:white;
+	// background-color: #26a69a;
+}
+
+.deck-class-bar h6 i{
+	color:white;
+	padding: 5px 10px;
+}
+
+.deck-class-bar h6{
+	padding:5px 0 0 0;
+}
+
 .user .circle{
-    width:150px;
-    height:150px;
-    border-radius:250px;
-    font-size: 2em;
-    color:#fff;
-    line-height:150px;
-    text-align:center;
-    background:#000;
-    display: inline-block;
-    margin: 0 2% 0 0;
-    text-align: center;
+  width:150px;
+  height:150px;
+  border-radius:250px;
+  font-size: 2em;
+  color:#fff;
+  line-height:150px;
+  text-align:center;
+  background:#000;
+  display: inline-block;
+  margin: 0 2% 0 0;
+  text-align: center;
 }
 
 .user .btn{
@@ -432,13 +483,31 @@ a:active{
 }
 
 .tracked-deck h6{
-	font-size: .9em;
-	font-weight: 500;
-	padding: 0 0 0 1em;
 	display:inline-block;
 	float:left;
-	width:65%;
-	line-height: 1.5em;
+	width:100%;
+	font-size: 1.3em;
+	font-weight: 500;
+	padding-bottom: 10px;
+}
+
+.tracked-deck h6:nth-child(1){
+
+}
+
+.info-width{ 
+	width:50%;
+	float:left;
+}
+
+
+
+.tracked-deck .info-heading,
+.info-heading{
+	font-size: .5em;
+	color:grey;
+	text-transform: uppercase;
+	padding-bottom: 0;
 }
 
 br{
@@ -448,6 +517,10 @@ br{
 .tracked-deck .deck-icon{
 	display:inline-block;
 	float:left;
+}
+
+.deck-info{
+	padding:0 10px;
 }
 
 .deck-info .progress{
@@ -463,7 +536,8 @@ br{
 .decks .btn{
 	height:inherit;
 	text-transform: none;
-	padding: 10px 10px 0px 15px;
+	padding: 0;
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 	text-align: left;
 	border-radius: 5px;
 }
@@ -474,6 +548,7 @@ br{
 }
 
 .decks hr{
+	width:85%;
 	border-top: 3px solid black;
 }
 
@@ -605,7 +680,7 @@ br{
 }
 
 .btn-floating{
-	background-color: #fff;
+	background-color: transparent;
 }
 
 .sort-search input{
@@ -619,6 +694,10 @@ br{
 .sort-search i{
 	color:black;
 	float:right;
+}
+
+.sort-search h6{
+	display:block;
 }
 
 @media only screen and (min-width : 993px) {
@@ -723,6 +802,10 @@ br{
 	background: rgba(34,34,34,0.50);
 }
 
+.collection-container .btn-floating{
+	background-color: transparent;
+}
+
 .collections-bg .collection-container .deck-icons{
 	margin: 50px 0 0 50px;
 	z-index: 1000;
@@ -757,6 +840,7 @@ br{
 }
 
  #class-cards img{
+ 	cursor:pointer;
   width:75%;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);

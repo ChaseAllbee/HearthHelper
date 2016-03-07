@@ -44,8 +44,9 @@ var ready = function(){
 			}
 			temp += "" + progressbar[j];
 		}
+		console.log($(this).parent().siblings());
 		percent = "" + (Math.round((+temp)/30*100)) + "%";
-		$(this).siblings(".progress").children()[0].style.width = percent;
+		$(this).parent().siblings(".progress").children()[0].style.width = percent;
 		//$(this).siblings("#progress-bar")[0].style.width = percent;
 	});
 
@@ -54,13 +55,11 @@ var ready = function(){
 			$(".nav-wrapper").addClass("z-depth-2");
 			$(".nav-wrapper").removeClass("z-depth-0");
 			$(".nav-wrapper").css("background-color", "white");
-			console.log($(".white-bg").scrollTop());
 		}
 		else if(($(".white-bg").scrollTop()) == 0){
 			$(".nav-wrapper").addClass("z-depth-0");
 			$(".nav-wrapper").removeClass("z-depth-2");
 			$(".nav-wrapper").css("background-color", "transparent");
-			console.log($(".white-bg").scrollTop());
 		}
 	});
 
