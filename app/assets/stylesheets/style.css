@@ -807,7 +807,7 @@ br{
 }
 
 .collections-bg .collection-container .deck-icons{
-	margin: 50px 0 0 50px;
+	margin: 20px 0 0 50px;
 	z-index: 1000;
 }
 
@@ -835,15 +835,26 @@ br{
 	font-weight: 900;
 }
 
+#class-name h4{
+	margin-bottom: 0;
+}
+
 #class-cards{
 	padding:0 0 0 50px;
 }
 
  #class-cards img{
  	cursor:pointer;
-  width:75%;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  width:20%;
+}
+
+.owned{
+
+}
+
+.not-owned{
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
 }
 
 #class-cards ul li{
