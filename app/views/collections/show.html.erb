@@ -24,15 +24,17 @@
 					<div class="col s9" id="class-cards">
 						<ul>
 							<div id="current-page">
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
+								<% unless @collection.page_ids.first ==  @collection.first_card_id %>
+									<%= link_to "Previous", @collection.prev %>
+								<% end %>
+								<% @cards.each do |card| %>
+									<li><%= p card %></li>
+								<% end %>
+								<% unless @collection.page_ids.last ==  @collection.last_card_id %>
+									<%= link_to "Next", collection_path %>
+								<% end %>
 							</div>
+
 							<div id="hidden-page" class="hide">
 								<li><img src="http://vignette2.wikia.nocookie.net/hearthstone/images/0/06/Huffer.png/revision/latest?cb=20130606221922"></li>
 								<li><img src="http://vignette2.wikia.nocookie.net/hearthstone/images/0/06/Huffer.png/revision/latest?cb=20130606221922"></li>
