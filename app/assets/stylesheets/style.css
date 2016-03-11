@@ -926,7 +926,7 @@ br{
 }
 
 .decks-page .deck-class-bar{
-	height:60px;
+	height:40px;
 }
 
 .deck-wrapper hr{
@@ -1009,10 +1009,15 @@ br{
 }
 
 .tracking-column{
-	text-align: center;
+	text-align: right;
+	padding-top:50px;
 }
 
-.tracking-column form input{
+.tracking-column form {
+	padding-top: 50px;
+}
+
+.tracking-column #track_form input{
 	border: 1px solid black;
 	width:250px;
 	height:250px;
@@ -1022,6 +1027,7 @@ br{
 .deck-information col:nth-child(4){
 	margin-top: 40px;
 }
+
 
 
 // .zero-cost{
