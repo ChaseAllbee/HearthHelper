@@ -427,7 +427,7 @@ a:active{ color:inherit; }
 	padding:5px 5px 5px 5px;
 }
 
-.tracked-deck .deck-class-bar{
+.deck-class-bar{
 	width:100%;
 	height:40px;
 	border-radius: 5px 5px 0 0;
@@ -853,16 +853,28 @@ br{
 }
 
 .decks-page{
+	text-align: center;
+	background-color: #F6F6F6;
 	width:100vw;
 	height:100vh;
 	overflow:hidden;
 	position:absolute;
 }
 
+.deck-page-module{
+	background-color: rgba(200, 200, 200, 0.5);
+	margin:9px 5px;
+	padding:20px 20px 0 20px;
+}
+
+.deck-page-module h6,
+.deck-page-module h5{
+
+}
+
 .deck-background-image{
 	width:100vw;
 	height:100vh;
-	background-image: url('http://hearthstonechampion.com/wp-content/uploads/2015/05/warlock.jpg');
 	background-position:center;
 	background-size: cover;
 	position:absolute;
@@ -870,16 +882,16 @@ br{
 
 #mask {
 	position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black;
-    filter: blur(5px);
-    opacity: .8;
-    width: 95%;
-    height: 95%;
-    margin: auto auto;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  filter: blur(5px);
+  opacity: .8;
+  width: 95%;
+  height: 95%;
+  margin: auto auto;
     /* -webkit-filter: blur(5px); */
 }
 
@@ -891,10 +903,30 @@ br{
 }
 
 .deck-wrapper{
+	background-color: white;
 	width: 95%;
 	height: 95%;
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
 	margin: auto auto;
-	padding: 70px;
+	border-radius: 5px;
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+	position:absolute;
+	text-align: left;
+}
+
+.deck-card{
+	padding:0 70px 70px 70px;
+}
+
+.deck-wrapper{
+	color:black;
+}
+
+.decks-page .deck-class-bar{
+	height:40px;
 }
 
 .deck-wrapper hr{
@@ -906,6 +938,105 @@ br{
 	border-bottom: solid white 1px;
 	background-color:rgba(200, 200, 200, 0.5)
 }
+
+.card-ul li p{
+	display:inline;
+	font-size: .9em;
+	margin:0;
+}
+
+.card-ul li p:nth-child(1){
+	font-weight: 700;
+	padding:0 20px 0 10px;
+}
+
+.card-ul li p:nth-child(1){
+	font-weight: 700;
+}
+
+.card-ul li p:nth-child(3){
+	float:right;
+	padding-right:10px;
+}
+
+.stats-column{
+	text-align: center;
+}
+
+.stats-column .deck-page-module{
+	padding-bottom: 40px;
+}
+
+.mana-curve{
+	height:150px;
+	text-align: justify;
+	-ms-text-justify: distribute-all-lines;
+	text-justify: distribute-all-lines;
+}
+.mana-curve .decks-page-module{
+	padding:20px 40px 0 40px;
+}
+
+.mana-curve:after{
+	content: '';
+	width: 100%;
+	display: inline-block;
+	font-size: 0;
+	line-height: 0
+}
+
+.mana{
+	width:5px;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+	background-color:black;
+	margin:0;
+}
+
+.mana-curve:hover .mana{
+	max-height: 300px;
+}
+
+.mana-column{
+	position: relative;
+	bottom: 0;
+	display:inline-block;
+	vertical-align: bottom;
+	padding:0;
+	margin:10px 0 0 0 ;
+}
+
+.tracking-column{
+	text-align: right;
+	padding-top:50px;
+}
+
+.tracking-column form {
+	padding-top: 50px;
+}
+
+.tracking-column #track_form input{
+	border: 1px solid black;
+	width:250px;
+	height:250px;
+	border-radius: 150px;
+}
+
+.deck-information col:nth-child(4){
+	margin-top: 40px;
+}
+
+
+
+// .zero-cost{
+// 	float:left;
+// }
+
+// .nine-cost{
+// 	float:right;
+// }
 
 
 
