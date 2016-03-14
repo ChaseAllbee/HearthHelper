@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :reset_token
-  has_one :collection
+  has_one :collection, dependent: :destroy
   has_many :saved_external_decks
   has_many :external_decks, through: :saved_external_decks
-  has_many :user_decks
+  has_many :user_decks, dependent: :destroy
   before_save   :downcase_email
   after_create :initialize_collection
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\z/
@@ -62,6 +62,21 @@ class User < ActiveRecord::Base
   # Returns true if a password reset has expired
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # Tracks deck for current user
+  def track(deck)
+    saved_external_decks.create(external_deck_id: deck.id)
+  end
+
+  # Untracks deck for current user
+  def untrack(deck)
+    saved_external_decks.find(deck.id).destroy
+  end
+
+  # Returns true if the current user is following the deck
+  def tracked?(deck)
+    external_decks.include?(deck)
   end
 
   private

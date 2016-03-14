@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   def create
     card_data = card_params.fetch(:_json)
     card_data.each do |card|
-      Card.create(card)
+      c = Card.find_or_create_by(card)
     end
     render 'new'
   end

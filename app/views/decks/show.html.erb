@@ -1,0 +1,49 @@
+<% provide(:title, @deck.name) %>
+<div class="deck-background-image"></div>
+	<div id="mask">
+
+	</div>
+</div>
+<div class="decks-page">
+	<div class="deck-wrapper">
+		<div class="row">
+			<div class="col s12">
+				<h2 class="max-weight"><%= @deck.name %></h2>
+				<hr class="fourth thin">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s4">
+				<h6>Cards</h6>
+				<ul class="card-ul">
+					<% @deck.cards.each do |card| %>
+					<li><p><%="#{card.cost}"%></p> 
+							<p><%="#{card.name}"%></p>
+							<p><%= "x " + "#{@deck.quantity(card)}"%><p></li>
+					<% end %>
+				</ul>
+			</div>
+			<div class="col s4">
+					<h6>Stats</h6>
+					<div class="col s12">
+						<div class="deck-page-module">
+
+						</div>
+					</div>
+					<h6>Mana Curve</h6>
+					<div class="col s12">
+						<div class="deck-page-module">
+
+						</div>
+					</div>
+				<%= @deck.tier %>
+				<%= @deck.deck_class %>
+				<%= @dust_to_craft %>
+				<%= @num_owned %>
+			</div>
+			<div class="col s4 tracking-column">
+				<%= render 'track_form' %>
+			</div>
+		</div>
+	</div>
+</div>

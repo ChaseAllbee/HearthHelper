@@ -1,37 +1,31 @@
- <!DOCTYPE html>
-  <html>
-    <head>
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700,500' rel='stylesheet' type='text/css'>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>	
+<% provide(:title, 'Decks') %>
     <body class="white-bg">
       <div class="row sort-search">
 		  <div class="col s8">
-		  	<img class="deck-sort-icon btn-floating" src="assets/druid.png">
-		  	<img class="deck-sort-icon btn-floating" src="assets/hunter.png">
-		  	<img class="deck-sort-icon btn-floating" src="assets/mage.png">
-		  	<img class="deck-sort-icon btn-floating" src="assets/paladin.png">
-		  	<img class="deck-sort-icon btn-floating" src="assets/priest.png">
-		  	<img class="deck-sort-icon btn-floating" src="assets/rogue.png">
-		  	<img class="deck-sort-icon btn-floating" src="assets/shaman.png">
-		  	<img class="deck-sort-icon btn-floating" src="assets/warlock.png">
-		  	<img class="deck-sort-icon btn-floating" src="assets/warrior.png">
+		  	<%= image_tag("druid.png", class:"deck-sort-icon btn-floating sort-icon") %>
+		  	<%= image_tag("hunter.png", class:"deck-sort-icon btn-floating sort-icon") %>
+		  	<%= image_tag("mage.png", class:"deck-sort-icon btn-floating sort-icon") %>
+		  	<%= image_tag("paladin.png", class:"deck-sort-icon btn-floating sort-icon") %>
+		  	<%= image_tag("priest.png", class:"deck-sort-icon btn-floating sort-icon") %>
+		  	<%= image_tag("rogue.png", class:"deck-sort-icon btn-floating sort-icon") %>
+		  	<%= image_tag("shaman.png", class:"deck-sort-icon btn-floating sort-icon") %>
+		  	<%= image_tag("warlock.png", class:"deck-sort-icon btn-floating sort-icon") %>
+		  	<%= image_tag("warrior.png", class:"deck-sort-icon btn-floating sort-icon") %>
 		  </div>
 		  <div class="col s4">
 			<input placeholder="search" id="search-field" type="text">
       	  </div>
       </div>
-      <div class="row mobile-search">
+<!--       <div class="row mobile-search">
       	<div class="col s12">
       		<input placeholder="search" id="search-field" type="text">
       	</div>
-      </div>
+      </div> -->
 
       <div class="decks">
       	<div class="row">
       		<div class="col l4 m12 s12">
-      			<h2>Recommended</h2>
+      			<h4>Recommended</h4>
       			<hr class="half"/>
       			<figure class="tracked-deck btn">
 		  			<div class="deck-icon">
@@ -75,50 +69,34 @@
       		</div>
 
       		<div class="col l4 m12 s12">
-      			<h2>Tier 1 Meta - TS</h2>
+      			<h4>Tier 1 Meta - TS</h4>
       			<hr class="half"/>
-      			<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">25/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-		  		</figure>
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">25/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-		  		</figure>
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">25/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-		  		</figure>
+      			<% @meta_decks.each_slice(3).with_index do |slice, slice_idx| %>
+      				<% slice.each_with_index do |meta_deck, deck_idx| %>
+				  			<a><%= link_to deck_path(meta_deck) do %>
+					  			<figure class="tracked-deck btn">
+					  				<div class="deck-icon">
+					  					<img class="deck druid circle" src="assets/druidicon.png">
+					  				</div>
+					  				<div class="deck-info">
+											<h6><%= meta_deck.name %></h6>
+										  	<h6 class="cards-owned"><%= @num_owned[deck_idx + slice_idx * 3] %>
+										  	/30 cards owned</h6>
+		  				  					<h6><%= @dust_to_craft[deck_idx + slice_idx * 3] %>
+		                    				dust to craft</h6>
+		  				  				<div class="progress">
+		  				  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
+		  				  				</div>
+									</div>
+								</figure>
+							<% end %></a>
+
+						<% end %>
+						<% end %>
+
       		</div>
       		<div class="col l4 m12 s12">
-      			<h2>My Custom Decks</h2>
+      			<h4>My Custom Decks</h4>
       			<hr class="half"/>
       			<figure class="tracked-deck btn">
 		  			<div class="deck-icon">
@@ -162,5 +140,4 @@
       		</div>
       	</div>
     </body>
-  </html>
-        
+

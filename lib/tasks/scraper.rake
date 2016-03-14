@@ -1,39 +1,48 @@
 namespace :scraper do
   desc "Run scraper"
   task :scrape => :environment do
-    quantity = []
     deck_names = []
     agent = Mechanize.new
     @browser = Watir::Browser.new
     @browser.goto("https://tempostorm.com/hearthstone/meta-snapshot")
     wait_for_js_home
-    click_tier_buttons
-    deck_names = get_deck_names
 
-    @browser.buttons(:class => "deck-button").each_with_index do |deck_link, browser_index|
-      deck_link.click
+    1.upto(4) do |deck_tier|
+      click_tier_button(deck_tier)
+      deck_names = get_deck_names
 
-      @browser.windows[browser_index + 1].use do   # browser.windows[0] is main page
-        wait_for_js_decks
-        html = @browser.html
-        # Create new mechanize page using watir browser html as input
-        page = Mechanize::Page.new(nil, {'content-type' => 'text/html'},
-                                   html, nil, agent)
-        deck_name = deck_names[browser_index]
-        create_external_decks(deck_name)
-        deck_id = ExternalDeck.find_by(name: deck_name).id
+      @browser.buttons(:class => "deck-button").each_with_index do |deck_link, browser_index|
+        quantity = []
+        if deck_link.visible?
+          deck_link.click
 
-        @browser.divs(:class => "db-deck-card-qty").each do |qty|
-          quantity << qty.text
-        end
+          @browser.windows[browser_index + 1].use do   # browser.windows[0] is main page
+            wait_for_js_decks
+            html = @browser.html
+            # Create new mechanize page using watir browser html as input
+            page = Mechanize::Page.new(nil, {'content-type' => 'text/html'},
+                                       html, nil, agent)
+            deck_name = deck_names[browser_index]
+            create_external_decks(deck_name, deck_tier)
+            deck_id = ExternalDeck.find_by(name: deck_name).id
 
-        # Replace empty quantity with "1"
-        quantity.map! { |num| num == "2" ? "2" : "1" }
+            @browser.divs(:class => "db-deck-card-qty").each do |qty|
+              quantity << qty.text
+            end
 
-        page.search(".db-deck-card-name.ng-binding").each_with_index do |card, i|
-          push_deck_cards(deck_id, card.text, quantity[i])
+            # Replace empty quantity with "1"
+            quantity.map! { |num| num == "2" ? "2" : "1" }
+
+            page.search(".db-deck-card-name.ng-binding").each_with_index do |card, i|
+              puts "#{deck_name}" + " #{card.text}" + " " "qty: " + "#{quantity[i]}"
+              push_deck_cards(deck_id, card.text, quantity[i])
+            end
+          end
         end
       end
+
+      click_tier_button(deck_tier)
+
     end
 
     @browser.close
@@ -51,8 +60,9 @@ def wait_for_js_decks
 end
 
 # Click tier (1-4) buttons to make deck buttons visible
-def click_tier_buttons
-  @browser.buttons(:class, "btn-tier-collapse").each { |tier| tier.click }
+def click_tier_button(deck_tier)
+  tier = deck_tier - 1
+  @browser.buttons(:class, "btn-tier-collapse")[tier].click
 end
 
 # Return deck names with current month appended
@@ -66,8 +76,8 @@ def get_deck_names
 end
 
 # Create ExternalDeck
-def create_external_decks(deck_name)
-  ExternalDeck.find_or_create_by(name: deck_name, deck_class: class_name)
+def create_external_decks(deck_name, deck_tier)
+  e = ExternalDeck.find_or_create_by(name: deck_name, deck_class: class_name, tier: deck_tier)
 end
 
 # Add deck card names + quantity associated to each ExternalDeck
