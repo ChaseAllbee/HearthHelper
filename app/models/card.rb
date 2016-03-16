@@ -20,9 +20,5 @@ class Card < ActiveRecord::Base
     where("card_class = ?", card_class).where("cost >= 0").order(cost: :asc)
   end
 
-  # Returns all playable cards
-  def self.all_playable
-    where("cost >= ?", 0).order(card_class: :asc).order(cost: :asc)
-  end
 end
 

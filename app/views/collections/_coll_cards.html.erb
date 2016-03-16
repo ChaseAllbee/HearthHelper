@@ -2,5 +2,5 @@
   <%= image_tag(card.image) %>
 <% end %>
 <br><br><br><br><br><br>
-<%= will_paginate @cards %>
+<%= will_paginate @cards, :page_links => false %>
 
