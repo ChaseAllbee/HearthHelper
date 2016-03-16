@@ -18,7 +18,11 @@ class Card < ActiveRecord::Base
   # Returns ids of all playable cards of same class in ascending mana cost
   def self.with_class(card_class)
     where("card_class = ?", card_class).where("cost >= 0").order(cost: :asc)
-                                                          .pluck(:id)
+  end
+
+  # Returns all playable cards
+  def self.all_playable
+    where("cost >= ?", 0).order(card_class: :asc).order(cost: :asc)
   end
 end
 

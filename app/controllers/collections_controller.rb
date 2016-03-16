@@ -1,11 +1,8 @@
 class CollectionsController < ApplicationController
   def show
-  	@collection ||= current_user.collection
-  	@collection.current_class ||= @collection.class_list.first		# Default: Druid
-  	@collection.class_ids ||= Card.with_class(@collection.current_class) 
-  	@collection.page_ids ||= @collection.class_ids[0, 8]
-  	@collection.first_card_id ||= Card.with_class(@collection.class_list.first).first
-  	@collection.last_card_id ||= Card.with_class(@collection.class_list.last).last
-  	@cards ||= Card.find(@collection.page_ids).sort_by(&:cost)
+    @collection ||= current_user.collection
+    @normal_cards = normal_page_cards
+    @collection.current_class = @normal_cards.first.card_class
+    @cards = last_page_in_class? ? last_class_page_cards : @normal_cards
   end
 end

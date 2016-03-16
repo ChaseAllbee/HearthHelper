@@ -23,14 +23,8 @@
 					</div>
 					<div class="col s9" id="class-cards">
 						<ul>
-							<div id="current-page">
-								<% unless @collection.page_ids.first ==  @collection.first_card_id %>
-									<%= link_to "Previous", @collection.prev %>
-								<% end %>
-								<%= render @cards %>
-								<% unless @collection.page_ids.last ==  @collection.last_card_id %>
-									<%= link_to "Next", collection_path %>
-								<% end %>
+							<div id="cards">
+								<%= render 'coll_cards' %>
 							</div>
 					</div>
 				</div>

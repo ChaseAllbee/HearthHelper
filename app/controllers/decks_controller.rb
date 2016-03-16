@@ -1,6 +1,4 @@
 class DecksController < ApplicationController
-	include ApplicationHelper
-  include DecksHelper
 
   def index
     month = Date.today.strftime("%B")
@@ -21,6 +19,5 @@ class DecksController < ApplicationController
     @num_owned = num_cards_owned(@deck)
     @dust_to_craft = dust_needed(@deck)
     gon.mana_costs = mana_curve
-    p gon.mana_costs
   end
 end

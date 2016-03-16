@@ -69,7 +69,7 @@ var ready = function(){
 	});
 
 
-		console.log(gon.mana_costs);
+		/*
 		var array = (gon.mana_costs);
 		$(".zero-cost").children(".mana").animate({height: (array[0]*10)}, 'swing');
 		$(".one-cost").children(".mana").animate({height: (array[1]*10)}, 'swing');
@@ -81,7 +81,7 @@ var ready = function(){
 		$(".seven-cost").children(".mana").animate({height: (array[7]*10)}, 'swing');
 		$(".eight-cost").children(".mana").animate({height: (array[8]*10)}, 'swing');
 		$(".nine-cost").children(".mana").animate({height: (array[9]*10)}, 'swing');
-
+		*/
 
 
 };
