@@ -1,6 +1,9 @@
+<%= include_gon %>
 <% @cards.each do |card| %>
   <%= image_tag(card.image) %>
 <% end %>
 <br><br><br><br><br><br>
 <%= will_paginate @cards, :page_links => false %>
-
+<% if last_page_in_class? %>
+  <li class="next-icon" id="next"><img class="deck-sort-icon btn-floating" src="assets/druid.png"></li>
+<% end %>

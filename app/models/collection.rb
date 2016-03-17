@@ -1,5 +1,4 @@
 class Collection < ActiveRecord::Base
-  attr_accessor :current_class
 	belongs_to :user
 	has_many :collection_card_instances
 	has_many :cards, through: :collection_card_instances
