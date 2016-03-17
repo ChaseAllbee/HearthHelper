@@ -15,4 +15,11 @@ module CollectionsHelper
     Card.with_class(@current_class).page(params[:page]).per_page(8)
   end
 
+  def searching?
+    return true unless params[:search].nil?
+  end
+
+  def search_results
+    Card.search(params[:search]).page(params[:page]).per_page(8)
+  end
 end

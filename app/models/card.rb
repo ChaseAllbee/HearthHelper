@@ -23,7 +23,7 @@ class Card < ActiveRecord::Base
   # Returns result of search
   def self.search(search)
     if search
-      where("name LIKE ?", "%#{search}")
+      where("name LIKE ?", "%#{search}%")
     else
       where(nil)
     end

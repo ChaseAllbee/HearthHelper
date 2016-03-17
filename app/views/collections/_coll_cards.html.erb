@@ -3,7 +3,7 @@
   <%= image_tag(card.image) %>
 <% end %>
 <%= will_paginate @cards, :page_links => false, :previous_label => '<i class="material-icons">keyboard_arrow_left</i>', :next_label => '<i class="material-icons">keyboard_arrow_right</i>' %>
-<% if last_page_in_class? %>
+<% if last_page_in_class? && !searching? %>
   <a class="next-icon next_page" id="next"><i class="material-icons">keyboard_arrow_right</i></a>
 <% elsif first_page_in_class? %>
   <a class="prev-icon previous_page" id="next"><i class="material-icons">keyboard_arrow_left</i></a>
