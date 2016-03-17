@@ -877,7 +877,7 @@ br{
 
  #class-cards img{
  	cursor:pointer;
-  width:25%;
+  width:24%;
   padding: 0 20px;
 }
 
@@ -1102,17 +1102,20 @@ br{
 	text-transform: uppercase;
 }
 
-#class-cards a{
+.previous_page,
+.next_page{
 	position:absolute;
 	top:43%;
 	color:white;
 }
 
-.next-icon{
+
+
+.next_page{
 	right:12%;
 }
 
-.prev-icon{
+.previous_page{
 	left:20%;
 }
 
