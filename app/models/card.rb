@@ -20,5 +20,14 @@ class Card < ActiveRecord::Base
     where("card_class = ?", card_class).where("cost >= 0").order(cost: :asc)
   end
 
+  # Returns result of search
+  def self.search(search)
+    if search
+      where("name LIKE ?", "%#{search}")
+    else
+      where(nil)
+    end
+  end
+
 end
 
