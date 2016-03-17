@@ -6,4 +6,6 @@
 <%= will_paginate @cards, :page_links => false %>
 <% if last_page_in_class? %>
   <li class="next-icon" id="next"><img class="deck-sort-icon btn-floating" src="assets/druid.png"></li>
+<% elsif first_page_in_class? %>
+  <li class="prev-icon" id="prev"><img class="deck-sort-icon btn-floating" src="assets/druid.png"></li>
 <% end %>

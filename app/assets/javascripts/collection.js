@@ -22,7 +22,20 @@ var ready = function() {
     $.ajax({
       url: '/collection',
       type: 'get',
-      data: {prev_or_next_class: "next", current_class: next_class},
+      data: {current_class: next_class},
+      dataType: "script",
+    });
+    return false;
+  });
+
+  $("body").on("click", ".prev-icon", function() {
+    var card_classes = ["Druid", "Hunter", "Mage", "Paladin", "Priest", "Rogue", "Shaman", "Warlock", "Warrior", "Neutral"];
+    var prev_class_idx = card_classes.indexOf(gon.current_class) - 1;
+    var prev_class = card_classes[prev_class_idx];
+    $.ajax({
+      url: '/collection',
+      type: 'get',
+      data: {page: gon.last_page_num, current_class: prev_class},
       dataType: "script",
     });
     return false;
