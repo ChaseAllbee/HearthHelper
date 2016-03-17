@@ -134,6 +134,15 @@ a:active{ color:inherit; }
   box-shadow: 0 27px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22);
 }
 
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;   
+  -khtml-user-select: none;    
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;           
+}
+
 
 /******   Splash Page Styles   ******/
 
@@ -1105,8 +1114,9 @@ br{
 .previous_page,
 .next_page{
 	position:absolute;
-	top:43%;
+	top:41%;
 	color:white;
+	cursor:pointer;
 }
 
 
@@ -1116,11 +1126,23 @@ br{
 }
 
 .previous_page{
-	left:20%;
+	left:6%;
 }
 
 #class-cards a i{
 	font-size: 64px;
+}
+
+.disabled{
+	display:none;
+}
+
+.home-button{
+	position:absolute;
+	top:30px;
+	right:30px;
+	color:white;
+	text-transform: uppercase;
 }
 
 

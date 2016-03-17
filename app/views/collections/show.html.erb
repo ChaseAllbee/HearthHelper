@@ -1,6 +1,7 @@
 <% provide(:title, 'Collection') %>
 
 <body class="collection-page">
+<%= link_to "Home", root_path, class: "waves-effect waves-light home-button" %>
 <div class="deck-icons shadow-2">
 	<ul>
 		<li class="icon-selected sort-icon" id="Druid"><img class="deck-sort-icon btn-floating" src="assets/druid.png"></li>
@@ -24,18 +25,18 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col s12 collections-bg">
+		<div class="col s12 collections-bg noselect">
 				<div class="collection-container">
 				</div>
 					<div class="col s9" id="class-cards">
+						<%= form_tag collection_path, method: "get", id: "cards-search" do %>
+						<p>
+							<%= text_field_tag :search, params[:search] %>
+							<%= submit_tag "Search", name: nil %>
+						</p>
+						<% end %>
 						<ul>
 							<div id="cards">
-								<%= form_tag collection_path, method: "get", id: "cards-search" do %>
-								<p>
-									<%= text_field_tag :search, params[:search] %>
-									<%= submit_tag "Search", name: nil %>
-								</p>
-								<% end %>
 								<%= render 'coll_cards' %>
 							</div>
 					</div>

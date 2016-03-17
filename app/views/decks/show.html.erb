@@ -1,97 +1,99 @@
 <% provide(:title, @deck.name) %>
-<div class="deck-background-image"></div>
-	<div id="mask">
+<body class="single-deck-page">
+	<div class="deck-background-image"></div>
+		<div id="mask">
 
+		</div>
 	</div>
-</div>
-<div class="decks-page">
-		<div class="deck-wrapper">
-	  <div class="deck-class-bar <%= @deck.deck_class %>"></div>
-  	<div class="deck-card">
-			<div class="row">
-				<div class="col s12">
-					<h2 class="max-weight"><%= @deck.name %></h2>
-					<hr class="fourth thin">
+	<div class="decks-page">
+			<div class="deck-wrapper">
+		  <div class="deck-class-bar <%= @deck.deck_class %>"></div>
+	  	<div class="deck-card">
+				<div class="row">
+					<div class="col s12">
+						<h2 class="max-weight"><%= @deck.name %></h2>
+						<hr class="fourth thin">
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col s4">
-					<h6>Cards</h6>
-					<ul class="card-ul">
-						<% @deck.cards.each do |card| %>
-						<li><p><%="#{card.cost}"%></p> 
-								<p><%="#{card.name}"%></p>
-								<p><%= "x " + "#{@deck.quantity(card)}"%><p></li>
-						<% end %>
-					</ul>
-				</div>
-				<div class="col s4 deck-information">
-						<h6>Stats</h6>
-						<div class="col s12 stats-column">
-							<div class="deck-page-module">
-								<div class="info-width">
-									<h6 class="info-heading">Tempostorm Deck Tier</h6>
-									<h5 class="numbers"><%= @deck.tier %></h5>
+				<div class="row">
+					<div class="col s4">
+						<h6>Cards</h6>
+						<ul class="card-ul">
+							<% @deck.cards.each do |card| %>
+							<li><p><%="#{card.cost}"%></p> 
+									<p><%="#{card.name}"%></p>
+									<p><%= "x " + "#{@deck.quantity(card)}"%><p></li>
+							<% end %>
+						</ul>
+					</div>
+					<div class="col s4 deck-information">
+							<h6>Stats</h6>
+							<div class="col s12 stats-column">
+								<div class="deck-page-module">
+									<div class="info-width">
+										<h6 class="info-heading">Tempostorm Deck Tier</h6>
+										<h5 class="numbers"><%= @deck.tier %></h5>
+									</div>
+									<div class="info-width">
+										<h6 class="info-heading">Dust Required to Craft</h6>
+										<h5 class="numbers"><%= @dust_to_craft %></h5>
+									</div>
+									<h6 class="info-heading">Number of Cards Missing</h6>
+									<h5 class="numbers"><%= @num_owned %></h5>					
 								</div>
-								<div class="info-width">
-									<h6 class="info-heading">Dust Required to Craft</h6>
-									<h5 class="numbers"><%= @dust_to_craft %></h5>
-								</div>
-								<h6 class="info-heading">Number of Cards Missing</h6>
-								<h5 class="numbers"><%= @num_owned %></h5>					
 							</div>
-						</div>
-						<h6>Mana Curve</h6>
-						<div class="col s12">
-							<div class="deck-page-module numbers mana-curve">
+							<h6>Mana Curve</h6>
+							<div class="col s12">
+								<div class="deck-page-module numbers mana-curve">
 
-									<div class="zero-cost mana-column">
-										<figure class="mana"></figure>
-										<h6>0</h6>
-									</div>
-									<div class="one-cost mana-column">
-										<figure class="mana"></figure>
-										<h6>1</h6>
-									</div>
-									<div class="two-cost mana-column">
-										<figure class="mana"></figure>
-										<h6>2</h6>
-									</div>
-									<div class="three-cost mana-column">
-										<figure class="mana"></figure>
-										<h6>3</h6>
-									</div>
-									<div class="four-cost mana-column">
-										<figure class="mana"></figure>
-										<h6>4</h6>
-									</div>
-									<div class="five-cost mana-column">
-										<figure class="mana"></figure>
-										<h6>5</h6>
-									</div>
-									<div class="six-cost mana-column">
-										<figure class="mana"></figure>
-										<h6>6</h6>
-									</div>
-									<div class="seven-cost mana-column">
-										<figure class="mana"></figure>
-										<h6>7</h6>
-									</div>
-									<div class="eight-cost mana-column">
-										<figure class="mana"></figure>
-										<h6>8</h6>
-									</div>
-									<div class="nine-cost mana-column">
-										<figure class="mana"></figure>
-										<h6>9</h6>
-									</div>
+										<div class="zero-cost mana-column">
+											<figure class="mana"></figure>
+											<h6>0</h6>
+										</div>
+										<div class="one-cost mana-column">
+											<figure class="mana"></figure>
+											<h6>1</h6>
+										</div>
+										<div class="two-cost mana-column">
+											<figure class="mana"></figure>
+											<h6>2</h6>
+										</div>
+										<div class="three-cost mana-column">
+											<figure class="mana"></figure>
+											<h6>3</h6>
+										</div>
+										<div class="four-cost mana-column">
+											<figure class="mana"></figure>
+											<h6>4</h6>
+										</div>
+										<div class="five-cost mana-column">
+											<figure class="mana"></figure>
+											<h6>5</h6>
+										</div>
+										<div class="six-cost mana-column">
+											<figure class="mana"></figure>
+											<h6>6</h6>
+										</div>
+										<div class="seven-cost mana-column">
+											<figure class="mana"></figure>
+											<h6>7</h6>
+										</div>
+										<div class="eight-cost mana-column">
+											<figure class="mana"></figure>
+											<h6>8</h6>
+										</div>
+										<div class="nine-cost mana-column">
+											<figure class="mana"></figure>
+											<h6>9</h6>
+										</div>
+								</div>
 							</div>
-						</div>
-				</div>
-				<div class="col s4 tracking-column">
-					<%= render 'track_form' %>
+					</div>
+					<div class="col s4 tracking-column">
+						<%= render 'track_form' %>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	</div>
+		</div>
+	</body>

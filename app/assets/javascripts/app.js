@@ -4,7 +4,6 @@ var ready = function(){
 	var lpasswordflag = false;
 	//Swap classes for login and sign out depending on which one is selected at the time
 	$("#login").click(function(){
-		console.log("clicked login");
 		if($("#login").hasClass("login-notselected")){
 			$("#login").toggleClass("login-notselected", false);
 			$("#login").toggleClass("login-selected", true);
@@ -16,7 +15,6 @@ var ready = function(){
 	});
 
 	$("#signup").click(function(){
-		console.log("clicked signup");
 		if($("#signup").hasClass("login-notselected")){
 			$("#signup").toggleClass("login-notselected", false);
 			$("#signup").toggleClass("login-selected", true);
@@ -44,7 +42,6 @@ var ready = function(){
 			}
 			temp += "" + progressbar[j];
 		}
-		console.log($(this).parent().siblings());
 		percent = "" + (Math.round((+temp)/30*100)) + "%";
 		$(this).parent().siblings(".progress").children()[0].style.width = percent;
 		//$(this).siblings("#progress-bar")[0].style.width = percent;
@@ -69,19 +66,23 @@ var ready = function(){
 	});
 
 
-		/*
-		var array = (gon.mana_costs);
-		$(".zero-cost").children(".mana").animate({height: (array[0]*10)}, 'swing');
-		$(".one-cost").children(".mana").animate({height: (array[1]*10)}, 'swing');
-		$(".two-cost").children(".mana").animate({height: (array[2]*10)}, 'swing');
-		$(".three-cost").children(".mana").animate({height: (array[3]*10)}, 'swing');
-		$(".four-cost").children(".mana").animate({height: (array[4]*10)}, 'swing');
-		$(".five-cost").children(".mana").animate({height: (array[5]*10)}, 'swing');
-		$(".six-cost").children(".mana").animate({height: (array[6]*10)}, 'swing');
-		$(".seven-cost").children(".mana").animate({height: (array[7]*10)}, 'swing');
-		$(".eight-cost").children(".mana").animate({height: (array[8]*10)}, 'swing');
-		$(".nine-cost").children(".mana").animate({height: (array[9]*10)}, 'swing');
-		*/
+
+		$(function(){
+		  if($('body').is('.single-deck-page')){
+		  		var array = (gon.mana_costs);
+		  		$(".zero-cost").children(".mana").animate({height: (array[0]*10)}, 'swing');
+		  		$(".one-cost").children(".mana").animate({height: (array[1]*10)}, 'swing');
+		  		$(".two-cost").children(".mana").animate({height: (array[2]*10)}, 'swing');
+		  		$(".three-cost").children(".mana").animate({height: (array[3]*10)}, 'swing');
+		  		$(".four-cost").children(".mana").animate({height: (array[4]*10)}, 'swing');
+		  		$(".five-cost").children(".mana").animate({height: (array[5]*10)}, 'swing');
+		  		$(".six-cost").children(".mana").animate({height: (array[6]*10)}, 'swing');
+		  		$(".seven-cost").children(".mana").animate({height: (array[7]*10)}, 'swing');
+		  		$(".eight-cost").children(".mana").animate({height: (array[8]*10)}, 'swing');
+		  		$(".nine-cost").children(".mana").animate({height: (array[9]*10)}, 'swing');
+		  }
+		});
+		
 
 
 };
