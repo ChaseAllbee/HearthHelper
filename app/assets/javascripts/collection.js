@@ -45,8 +45,9 @@ var ready = function() {
     return false;
   });
 
-  $("#cards-search").submit(function() {
-    $.get(this.action, $(this).serialize(), null, "script");
+  // Searches cards upon each keystroke
+  $("#cards-search input").keyup(function() {
+    $.get($("#products_search").attr("action"), $(this).serialize(), null, "script");
     return false;
   });
 };

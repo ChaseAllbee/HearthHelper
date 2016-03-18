@@ -15,4 +15,24 @@ module CollectionsHelper
     Card.with_class(@current_class).page(params[:page]).per_page(8)
   end
 
+  # Returns true if user has entered anything into the search bar
+  def searching?
+    return true unless params[:search].nil?
+  end
+
+  # Returns search result cards matching search string
+  def search_results
+    Card.search(params[:search]).page(params[:page]).per_page(8)
+  end
+
+  # Returns true if card is in user's collection
+  def owned_or_not(card)
+    @owned.include?(card) ? "owned" : "not-owned"
+  end
+
+  # Returns the quantity of this card in user's collection
+  def card_quantity(card)
+    c = @collection.collection_card_instances.where("card_id = ?", card.id).first
+    c.nil? ? 0 : c.quantity
+  end
 end

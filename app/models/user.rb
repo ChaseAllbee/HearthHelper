@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessor :remember_token, :reset_token
+  attr_accessor :remember_token
   has_one :collection, dependent: :destroy
-  has_many :saved_external_decks
+  has_many :saved_external_decks, dependent: :destroy
   has_many :external_decks, through: :saved_external_decks
   has_many :user_decks, dependent: :destroy
   before_save   :downcase_email
@@ -45,23 +45,6 @@ class User < ActiveRecord::Base
   # Removes user remember digest
   def forget
     update_attribute(:remember_digest, nil)
-  end
-
-  # Sets the password reset attributes
-  def create_reset_digest
-    self.reset_token = User.new_token
-    update_attribute(:reset_digest,  User.digest(reset_token))
-    update_attribute(:reset_sent_at, Time.zone.now)
-  end
-
-  # Sends password reset email
-  def send_password_reset_email
-    UserMailer.password_reset(self).deliver_now
-  end
-
-  # Returns true if a password reset has expired
-  def password_reset_expired?
-    reset_sent_at < 2.hours.ago
   end
 
   # Tracks deck for current user

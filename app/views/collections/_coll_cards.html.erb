@@ -1,9 +1,15 @@
 <%= include_gon %>
+
 <% @cards.each do |card| %>
-  <%= image_tag(card.image) %>
+  <%= image_tag(card.image, class: owned_or_not(card)) %>
+  <i class="material-icons">keyboard_arrow_left</i>
+  <%= card_quantity(card) %>
+  <i class="material-icons">keyboard_arrow_right</i>
 <% end %>
+
 <%= will_paginate @cards, :page_links => false, :previous_label => '<i class="material-icons">keyboard_arrow_left</i>', :next_label => '<i class="material-icons">keyboard_arrow_right</i>' %>
-<% if last_page_in_class? %>
+
+<% if last_page_in_class? && !searching? %>
   <a class="next-icon next_page" id="next"><i class="material-icons">keyboard_arrow_right</i></a>
 <% elsif first_page_in_class? %>
   <a class="prev-icon previous_page" id="next"><i class="material-icons">keyboard_arrow_left</i></a>
