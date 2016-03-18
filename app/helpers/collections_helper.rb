@@ -22,4 +22,8 @@ module CollectionsHelper
   def search_results
     Card.search(params[:search]).page(params[:page]).per_page(8)
   end
+
+  def owned_or_not(card)
+    @owned.include?(card) ? "owned" : "not-owned"
+  end
 end

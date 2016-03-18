@@ -45,6 +45,7 @@ var ready = function() {
     return false;
   });
 
+  // Searches cards upon each keystroke
   $("#cards-search input").keyup(function() {
     $.get($("#products_search").attr("action"), $(this).serialize(), null, "script");
     return false;
