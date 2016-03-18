@@ -14,5 +14,20 @@ class Card < ActiveRecord::Base
   validates :image, presence: true
   validates :card_type, presence: true
   validates :card_class, presence: true
+
+  # Returns ids of all playable cards of same class in ascending mana cost
+  def self.with_class(card_class)
+    where("card_class = ?", card_class).where("cost >= 0").order(cost: :asc)
+  end
+
+  # Returns result of search
+  def self.search(search)
+    if search
+      where("name LIKE ?", "%#{search}%").where("cost >= 0").order(cost: :asc)
+    else
+      where(nil)
+    end
+  end
+
 end
 

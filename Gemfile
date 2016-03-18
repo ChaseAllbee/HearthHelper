@@ -26,6 +26,8 @@ gem 'watir'
 gem 'mechanize'
 gem 'watir-webdriver'
 gem 'seed_dump'
+gem 'gon'
+gem 'will_paginate', '~> 3.0.6'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
