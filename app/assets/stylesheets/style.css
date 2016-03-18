@@ -949,7 +949,6 @@ br{
   width: 95%;
   height: 95%;
   margin: auto auto;
-    /* -webkit-filter: blur(5px); */
 }
 
 .deck-background-darken{
@@ -1145,36 +1144,17 @@ br{
 	text-transform: uppercase;
 }
 
+#cards-search{
+	position:absolute;
+	bottom:10px;
+	width:50%;
+	margin-left:40px;
+	padding:0 10px;
+}
 
-
-
-// .zero-cost{
-// 	float:left;
-// }
-
-// .nine-cost{
-// 	float:right;
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#cards-search #search{
+	background-color:white;
+	border-radius: 30px;
+}
 
 

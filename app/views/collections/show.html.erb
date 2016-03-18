@@ -31,7 +31,7 @@
 					<div class="col s9" id="class-cards">
 						<%= form_tag collection_path, method: "get", id: "cards-search" do %>
 						<p>
-							<%= text_field_tag :search, params[:search] %>
+							<%= text_field_tag :search, params[:search], placeholder:"Search", class:"shadow-2" %>
 							<%= submit_tag "Search", name: nil %>
 						</p>
 						<% end %>
