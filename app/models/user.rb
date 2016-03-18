@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
   has_one :collection, dependent: :destroy
-  has_many :saved_external_decks
+  has_many :saved_external_decks, dependent: :destroy
   has_many :external_decks, through: :saved_external_decks
   has_many :user_decks, dependent: :destroy
   before_save   :downcase_email
