@@ -7,6 +7,7 @@ class Collection < ActiveRecord::Base
 
   private
 
+    # Increases each basic free card qty from 0 to 1
     def initialize_basic_card_qty
       self.collection_card_instances.each do |card|
         card.increment!(:quantity)

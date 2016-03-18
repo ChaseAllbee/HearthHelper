@@ -41,7 +41,7 @@ nav ul a{
 .btn{
 	background-color: transparent;
 	color:white;
-	border: thin solid white;
+
 	font-weight:600;
 	margin:30px 0;
 }
@@ -53,6 +53,10 @@ nav ul a{
 .row .col{
 	padding: 0;
 	margin-bottom: 0;
+}
+
+.numbers{
+	font-family: 'Open Sans';
 }
 
 .gap6{
@@ -88,12 +92,56 @@ nav .button-collapse{
 	padding-left: 10px;
 }
 
+a:active{ color:inherit; }
 
+.Druid{ background-color: #27ae60; }
 
-a:active{
-	color:inherit;
+.Hunter{ background-color: #306952; }
+
+.Mage{ background-color: #3498db; }
+
+.Paladin{ background-color: #F1DF4F; }
+
+.Priest{ background-color: #ecf0f1; }
+
+.Priest h6 i{ color:black !important; }
+
+.Rogue{ background-color: #2c3e50; }
+
+.Shaman{ background-color: #00558E; }
+
+.Warlock{ background-color: #A05CB6; }
+
+.Warrior{ background-color: #E14D4C; }
+
+.shadow-1{
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 
+.shadow-2{
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.shadow-3{
+  box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.shadow-4{
+  box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21);
+}
+
+.shadow-5{
+  box-shadow: 0 27px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22);
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;   
+  -khtml-user-select: none;    
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;           
+}
 
 
 /******   Splash Page Styles   ******/
@@ -360,11 +408,25 @@ a:active{
 	color:black;
 }
 
+.white-bg{
+	background-color:#F6F6F6;
+}
+
 .white-bg nav{
 	background-color: none;
 }
 .white-bg nav ul a, .white-bg .brand-logo{
 	color: black;
+}
+
+.home .decks h4{
+	text-align: center;
+	margin: 10px 0;
+}
+
+.home .decks hr{
+	width:50%;
+
 }
 
 .user{
@@ -387,24 +449,42 @@ a:active{
 }
 
 .tracked-deck{
-	width:90%;
-	margin: 2%;
+	background-color: white;
+	width:85%;
+	margin: 2% 2% 2% 7%;
 	color:black;
 	padding:5px 5px 5px 5px;
 }
 
+.deck-class-bar{
+	width:100%;
+	height:40px;
+	border-radius: 5px 5px 0 0;
+	color:white;
+	// background-color: #26a69a;
+}
+
+.deck-class-bar h6 i{
+	color:white;
+	padding: 5px 10px;
+}
+
+.deck-class-bar h6{
+	padding:5px 0 0 0;
+}
+
 .user .circle{
-    width:150px;
-    height:150px;
-    border-radius:250px;
-    font-size: 2em;
-    color:#fff;
-    line-height:150px;
-    text-align:center;
-    background:#000;
-    display: inline-block;
-    margin: 0 2% 0 0;
-    text-align: center;
+  width:150px;
+  height:150px;
+  border-radius:250px;
+  font-size: 2em;
+  color:#fff;
+  line-height:150px;
+  text-align:center;
+  background:#000;
+  display: inline-block;
+  margin: 0 2% 0 0;
+  text-align: center;
 }
 
 .user .btn{
@@ -432,13 +512,31 @@ a:active{
 }
 
 .tracked-deck h6{
-	font-size: .9em;
-	font-weight: 500;
-	padding: 0 0 0 1em;
 	display:inline-block;
 	float:left;
-	width:65%;
-	line-height: 1.5em;
+	width:100%;
+	font-size: 1.3em;
+	font-weight: 500;
+	padding-bottom: 10px;
+}
+
+.tracked-deck h6:nth-child(1){
+
+}
+
+.info-width{ 
+	width:50%;
+	float:left;
+}
+
+
+
+.tracked-deck .info-heading,
+.info-heading{
+	font-size: .5em;
+	color:grey;
+	text-transform: uppercase;
+	padding-bottom: 0;
 }
 
 br{
@@ -448,6 +546,10 @@ br{
 .tracked-deck .deck-icon{
 	display:inline-block;
 	float:left;
+}
+
+.deck-info{
+	padding:0 10px;
 }
 
 .deck-info .progress{
@@ -463,7 +565,8 @@ br{
 .decks .btn{
 	height:inherit;
 	text-transform: none;
-	padding: 10px 10px 0px 15px;
+	padding: 0;
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 	text-align: left;
 	border-radius: 5px;
 }
@@ -474,6 +577,7 @@ br{
 }
 
 .decks hr{
+	width:85%;
 	border-top: 3px solid black;
 }
 
@@ -605,7 +709,7 @@ br{
 }
 
 .btn-floating{
-	background-color: #fff;
+	background-color: transparent;
 }
 
 .sort-search input{
@@ -619,6 +723,10 @@ br{
 .sort-search i{
 	color:black;
 	float:right;
+}
+
+.sort-search h6{
+	display:block;
 }
 
 @media only screen and (min-width : 993px) {
@@ -680,6 +788,10 @@ br{
 	overflow: hidden;
 }
 
+.collection-page nav{
+	display:none;
+}
+
 
 .collections-bg{
 	/*background: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('http://www.wallpaperup.com/uploads/wallpapers/2014/01/05/215905/a67b07b67f8f15bc84a5139c4365a211.jpg');*/
@@ -710,22 +822,24 @@ br{
 }
 
 .collection-container{
-	width:98%;
-	height:98%;
-	position:relative;
-	top:10px;
-	left:1%;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 1%;
 	background-color: transparent;
-	border: 1px solid black;
-	z-index: 100;
+	z-index: -100;
 	padding: 20px;
-	background: rgb(34,34,34); /* for IE */
+	background: rgb(34,34,34);
 	background: rgba(34,34,34,0.50);
 }
 
+.collection-container .btn-floating{
+	background-color: transparent;
+}
+
 .collections-bg .collection-container .deck-icons{
-	margin: 50px 0 0 50px;
 	z-index: 1000;
+	text-align: center;
 }
 
 .collections-bg .collection-container .deck-icons li{
@@ -743,8 +857,18 @@ br{
 	opacity: 1;
 }
 
+.deck-icons{
+	position:fixed;
+	background-color:#3e474f;
+	height:100vh;
+	z-index:100;
+}
+
+
+.deck-icons ul{padding:10px;}
 .deck-icons ul li{
-	display: inline-block;
+	display: block;
+	padding:7px 0;
 }
 
 #class-name{
@@ -752,14 +876,31 @@ br{
 	font-weight: 900;
 }
 
+#class-name h4{
+	margin-bottom: 0;
+}
+
 #class-cards{
-	padding:0 0 0 50px;
+	margin-left:130px;
 }
 
  #class-cards img{
-  width:75%;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+ 	cursor:pointer;
+  width:24%;
+  padding: 0 20px;
+}
+
+#class-cards img:nth_child(4){
+	clear:both;
+}
+
+.owned{
+
+}
+
+.not-owned{
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
 }
 
 #class-cards ul li{
@@ -769,16 +910,28 @@ br{
 }
 
 .decks-page{
+	text-align: center;
+	background-color: #F6F6F6;
 	width:100vw;
 	height:100vh;
 	overflow:hidden;
 	position:absolute;
 }
 
+.deck-page-module{
+	background-color: rgba(200, 200, 200, 0.5);
+	margin:9px 5px;
+	padding:20px 20px 0 20px;
+}
+
+.deck-page-module h6,
+.deck-page-module h5{
+
+}
+
 .deck-background-image{
 	width:100vw;
 	height:100vh;
-	background-image: url('http://hearthstonechampion.com/wp-content/uploads/2015/05/warlock.jpg');
 	background-position:center;
 	background-size: cover;
 	position:absolute;
@@ -786,17 +939,16 @@ br{
 
 #mask {
 	position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black;
-    filter: blur(5px);
-    opacity: .8;
-    width: 98%;
-    height: 98%;
-    margin: auto auto;
-    /* -webkit-filter: blur(5px); */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  filter: blur(5px);
+  opacity: .8;
+  width: 95%;
+  height: 95%;
+  margin: auto auto;
 }
 
 .deck-background-darken{
@@ -807,10 +959,30 @@ br{
 }
 
 .deck-wrapper{
+	background-color: white;
 	width: 95%;
 	height: 95%;
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
 	margin: auto auto;
-	padding: 70px;
+	border-radius: 5px;
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+	position:absolute;
+	text-align: left;
+}
+
+.deck-card{
+	padding:0 70px 70px 70px;
+}
+
+.deck-wrapper{
+	color:black;
+}
+
+.decks-page .deck-class-bar{
+	height:40px;
 }
 
 .deck-wrapper hr{
@@ -855,6 +1027,166 @@ br{
 .tracking-column{
 	
 }
+
+.card-ul li p{
+	display:inline;
+	font-size: .9em;
+	margin:0;
+}
+
+.card-ul li p:nth-child(1){
+	font-weight: 700;
+	padding:0 20px 0 10px;
+}
+
+.card-ul li p:nth-child(1){
+	font-weight: 700;
+}
+
+.card-ul li p:nth-child(3){
+	float:right;
+	padding-right:10px;
+}
+
+.stats-column{
+	text-align: center;
+}
+
+.stats-column .deck-page-module{
+	padding-bottom: 40px;
+}
+
+.mana-curve{
+	height:150px;
+	text-align: justify;
+	-ms-text-justify: distribute-all-lines;
+	text-justify: distribute-all-lines;
+}
+.mana-curve .decks-page-module{
+	padding:20px 40px 0 40px;
+}
+
+.mana-curve:after{
+	content: '';
+	width: 100%;
+	display: inline-block;
+	font-size: 0;
+	line-height: 0
+}
+
+.mana{
+	width:5px;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+	background-color:black;
+	margin:0;
+}
+
+.mana-curve:hover .mana{
+	max-height: 300px;
+}
+
+.mana-column{
+	position: relative;
+	bottom: 0;
+	display:inline-block;
+	vertical-align: bottom;
+	padding:0;
+	margin:10px 0 0 0 ;
+}
+
+.tracking-column{
+	text-align: right;
+	padding-top:50px;
+}
+
+.tracking-column form {
+	padding-top: 50px;
+}
+
+.tracking-column #track_form input{
+	border: 1px solid black;
+	width:250px;
+	height:250px;
+	border-radius: 150px;
+}
+
+.deck-information col:nth-child(4){
+	margin-top: 40px;
+}
+
+.my-tabs{
+	position:absolute;
+	top:30%;
+	right:0;
+}
+
+.my-tab{
+	height:120px;
+	margin:5px 0;
+	width:40px;
+	background-color: #3e474f;
+	cursor:pointer;
+}
+
+.rotated{
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+}
+
+.tabs-text{
+	position:relative;
+	top:60px;
+	text-transform: uppercase;
+}
+
+.previous_page,
+.next_page{
+	position:absolute;
+	top:41%;
+	color:white;
+	cursor:pointer;
+}
+
+
+
+.next_page{
+	right:12%;
+}
+
+.previous_page{
+	left:6%;
+}
+
+#class-cards a i{
+	font-size: 64px;
+}
+
+.disabled{
+	display:none;
+}
+
+.home-button{
+	position:absolute;
+	top:30px;
+	right:30px;
+	color:white;
+	text-transform: uppercase;
+}
+
+
+
+
+// .zero-cost{
+// 	float:left;
+// }
+
+// .nine-cost{
+// 	float:right;
+// }
 
 
 

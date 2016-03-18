@@ -28,45 +28,69 @@
       			<h4>Recommended</h4>
       			<hr class="half"/>
       			<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">25/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
+		  				<div class="deck-class-bar Shaman">
+		  					<h6><i>Shaman</i></h6>
+		  				</div>
+		  				<div class="deck-info">
+		  					<h6 class="info-heading">Deck Name</h6>
+			  				<h6>Midrange Druid</h6>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Cards Owned</h6>
+			  					<h6 class="cards-owned numbers">25/30</h6>
+			  				</div>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Dust to Craft</h6>
+			  					<h6 class="numbers">360</h6>
+			  				</div>
+			  				<div class="progress">
+			  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
+			  				</div>
+							</div>
+						</figure>
+
+      			<figure class="tracked-deck btn">
+		  				<div class="deck-class-bar Warlock">
+		  					<h6><i>Warlock</i></h6>
+		  				</div>
+		  				<div class="deck-info">
+		  					<h6 class="info-heading">Deck Name</h6>
+			  				<h6>Midrange Druid</h6>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Cards Owned</h6>
+			  					<h6 class="cards-owned numbers">25/30</h6>
+			  				</div>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Dust to Craft</h6>
+			  					<h6 class="numbers">360</h6>
+			  				</div>
+			  				<div class="progress">
+			  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
+			  				</div>
+							</div>
+						</figure>
+
+      			<figure class="tracked-deck btn">
+		  				<div class="deck-class-bar Mage">
+		  					<h6><i>Mage</i></h6>
+		  				</div>
+		  				<div class="deck-info">
+		  					<h6 class="info-heading">Deck Name</h6>
+			  				<h6>Midrange Druid</h6>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Cards Owned</h6>
+			  					<h6 class="cards-owned numbers">25/30</h6>
+			  				</div>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Dust to Craft</h6>
+			  					<h6 class="numbers">360</h6>
+			  				</div>
+			  				<div class="progress">
+			  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
+			  				</div>
+							</div>
+						</figure>
 					</div>
-		  		</figure>
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">25/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-		  		</figure>
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">25/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-		  		</figure>
-      		</div>
+	
 
       		<div class="col l4 m12 s12">
       			<h4>Tier 1 Meta - TS</h4>
@@ -75,68 +99,97 @@
       				<% slice.each_with_index do |meta_deck, deck_idx| %>
 				  			<a><%= link_to deck_path(meta_deck) do %>
 					  			<figure class="tracked-deck btn">
-					  				<div class="deck-icon">
-					  					<img class="deck druid circle" src="assets/druidicon.png">
-					  				</div>
+										<div class="deck-class-bar <%= meta_deck.deck_class %>">
+											<h6><i><%= meta_deck.deck_class %></i></h6>
+										</div>
 					  				<div class="deck-info">
+					  					<h6 class="info-heading">Deck Name</h6>
 											<h6><%= meta_deck.name %></h6>
-										  	<h6 class="cards-owned"><%= @num_owned[deck_idx + slice_idx * 3] %>
-										  	/30 cards owned</h6>
-		  				  					<h6><%= @dust_to_craft[deck_idx + slice_idx * 3] %>
-		                    				dust to craft</h6>
-		  				  				<div class="progress">
-		  				  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
-		  				  				</div>
-									</div>
-								</figure>
-							<% end %></a>
-
-						<% end %>
+											<div class="info-width">
+												<h6 class="info-heading">Cards Owned</h6>
+										  	<h6 class="cards-owned numbers"><%= @num_owned[deck_idx + slice_idx * 3] %>/30</h6>
+										  </div>
+										  <div class="info-width">
+										  	<h6 class="info-heading">Dust to Craft</h6>
+		  				  				<h6 class="numbers"><%= @dust_to_craft[deck_idx + slice_idx * 3] %></h6>
+		  				  			</div>
+	  				  				<div class="progress ">
+	  				  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
+	  				  				</div>
+										</div>
+									</figure>
+								<% end %></a>
+							<% end %>
 						<% end %>
 
       		</div>
       		<div class="col l4 m12 s12">
       			<h4>My Custom Decks</h4>
       			<hr class="half"/>
+
       			<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">25/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-		  		</figure>
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">25/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-		  		</figure>
-		  		<figure class="tracked-deck btn">
-		  			<div class="deck-icon">
-		  				<img class="deck druid circle" src="assets/druidicon.png">
-		  			</div>
-		  			<div class="deck-info">
-			  			<h6>Midrange Druid</h6>
-			  			<h6 class="cards-owned">25/30 cards owned</h6>
-			  			<h6>360 dust to craft</h6>
-			  			<div class="progress">
-			  				<div class="determinate" style="width: 0%" id="progress-bar"></div>
-			  			</div>
-					</div>
-		  		</figure>
+		  				<div class="deck-class-bar Hunter">
+		  					<h6><i>Hunter</i></h6>
+		  				</div>
+		  				<div class="deck-info">
+		  					<h6 class="info-heading">Deck Name</h6>
+			  				<h6>Midrange Druid</h6>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Cards Owned</h6>
+			  					<h6 class="cards-owned numbers">25/30</h6>
+			  				</div>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Dust to Craft</h6>
+			  					<h6 class="numbers">360</h6>
+			  				</div>
+			  				<div class="progress">
+			  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
+			  				</div>
+							</div>
+						</figure>
+
+      			<figure class="tracked-deck btn">
+		  				<div class="deck-class-bar Priest">
+		  					<h6><i>Priest</i></h6>
+		  				</div>
+		  				<div class="deck-info">
+		  					<h6 class="info-heading">Deck Name</h6>
+			  				<h6>Midrange Druid</h6>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Cards Owned</h6>
+			  					<h6 class="cards-owned numbers">25/30</h6>
+			  				</div>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Dust to Craft</h6>
+			  					<h6 class="numbers">360</h6>
+			  				</div>
+			  				<div class="progress">
+			  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
+			  				</div>
+							</div>
+						</figure>
+
+      			<figure class="tracked-deck btn">
+		  				<div class="deck-class-bar Rogue">
+		  					<h6><i>Rogue</i></h6>
+		  				</div>
+		  				<div class="deck-info">
+		  					<h6 class="info-heading">Deck Name</h6>
+			  				<h6>Midrange Druid</h6>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Cards Owned</h6>
+			  					<h6 class="cards-owned numbers">25/30</h6>
+			  				</div>
+			  				<div class="info-width">
+			  					<h6 class="info-heading">Dust to Craft</h6>
+			  					<h6 class="numbers">360</h6>
+			  				</div>
+			  				<div class="progress">
+			  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
+			  				</div>
+							</div>
+						</figure>
+
       		</div>
       	</div>
     </body>

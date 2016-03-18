@@ -1,48 +1,43 @@
 <% provide(:title, 'Collection') %>
 
 <body class="collection-page">
+<%= link_to "Home", root_path, class: "waves-effect waves-light home-button" %>
+<div class="deck-icons shadow-2">
+	<ul>
+		<li class="icon-selected sort-icon" id="Druid"><img class="deck-sort-icon btn-floating" src="assets/druid.png"></li>
+		<li class="sort-icon" id="Hunter"><img class="deck-sort-icon btn-floating" src="assets/hunter.png"></li>
+		<li class="sort-icon" id="Mage"><img class="deck-sort-icon btn-floating" src="assets/mage.png"></li>
+		<li class="sort-icon" id="Paladin"><img class="deck-sort-icon btn-floating" src="assets/paladin.png"></li>
+		<li class="sort-icon" id="Priest"><img class="deck-sort-icon btn-floating" src="assets/priest.png"></li>
+		<li class="sort-icon" id="Rogue"><img class="deck-sort-icon btn-floating" src="assets/rogue.png"></li>
+		<li class="sort-icon" id="Shaman"><img class="deck-sort-icon btn-floating" src="assets/shaman.png"></li>
+		<li class="sort-icon" id="Warlock"><img class="deck-sort-icon btn-floating" src="assets/warlock.png"></li>
+		<li class="sort-icon" id="Warrior"><img class="deck-sort-icon btn-floating" src="assets/warrior.png"></li>
+		<li class="sort-icon" id="Neutral"><img class="deck-sort-icon btn-floating" src="assets/neutral.png"></li>
+	</ul>
+</div>
+	<div class="my-tabs">
+		<div class="my-tab shadow-2">
+			<h6 class="rotated tabs-text">Decks</h6>
+		</div>
+		<div class="my-tab shadow-2">
+			<h6 class="rotated tabs-text">Custom</h6>
+		</div>
+	</div>
 	<div class="row">
-		<div class="col s12 collections-bg">
-			<div class="collection-blur"></div>
+		<div class="col s12 collections-bg noselect">
 				<div class="collection-container">
-					<div class="col s8 deck-icons">
-						<ul>
-							<li class="icon-selected sort-icon"><img class="deck-sort-icon btn-floating" src="assets/druid.png"></li>
-							<li class="sort-icon"><img class="deck-sort-icon btn-floating" src="assets/hunter.png"></li>
-							<li class="sort-icon"><img class="deck-sort-icon btn-floating" src="assets/mage.png"></li>
-							<li class="sort-icon"><img class="deck-sort-icon btn-floating" src="assets/paladin.png"></li>
-							<li class="sort-icon"><img class="deck-sort-icon btn-floating" src="assets/priest.png"></li>
-							<li class="sort-icon"><img class="deck-sort-icon btn-floating" src="assets/rogue.png"></li>
-							<li class="sort-icon"><img class="deck-sort-icon btn-floating" src="assets/shaman.png"></li>
-							<li class="sort-icon"><img class="deck-sort-icon btn-floating" src="assets/warlock.png"></li>
-							<li class="sort-icon"><img class="deck-sort-icon btn-floating" src="assets/warrior.png"></li>
-						</ul>
-					</div>
-					<div class="col s9" id="class-name">
-						<h4>Druid</h2>
-					</div>
+				</div>
 					<div class="col s9" id="class-cards">
+						<%= form_tag collection_path, method: "get", id: "cards-search" do %>
+						<p>
+							<%= text_field_tag :search, params[:search] %>
+							<%= submit_tag "Search", name: nil %>
+						</p>
+						<% end %>
 						<ul>
-							<div id="current-page">
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-							</div>
-							<div id="hidden-page" class="hide">
-								<li><img src="http://vignette2.wikia.nocookie.net/hearthstone/images/0/06/Huffer.png/revision/latest?cb=20130606221922"></li>
-								<li><img src="http://vignette2.wikia.nocookie.net/hearthstone/images/0/06/Huffer.png/revision/latest?cb=20130606221922"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-								<li><img src="http://www.blogcdn.com/wow.joystiq.com/media/2013/03/arcane-missiles.png"></li>
-
+							<div id="cards">
+								<%= render 'coll_cards' %>
 							</div>
 					</div>
 				</div>
