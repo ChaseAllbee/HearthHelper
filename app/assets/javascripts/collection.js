@@ -53,7 +53,6 @@ var ready = function() {
 
   // Increments or decrements card quantity
   $("body").on("submit", ".incr_or_decr", function() {
-    alert("wow");
     var id = $("#card_id").val();
     $.ajax({
       url: '/collection',
