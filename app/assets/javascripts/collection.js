@@ -50,6 +50,19 @@ var ready = function() {
     $.get($("#products_search").attr("action"), $(this).serialize(), null, "script");
     return false;
   });
+
+  // Increments or decrements card quantity
+  $(".incr_or_decr").submit(function(e) {
+    e.preventDefault();
+    var id = $("#card_id").val();
+    $.ajax({
+      url: '/collection',
+      type: 'get',
+      data: {increment_or_decrement: this.id, card_id: id},
+      dataType: "script",
+    });
+    return false;
+  });
 };
 $(document).ready(ready);
 $(document).on('page:load', ready);
