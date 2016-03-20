@@ -47,13 +47,13 @@ var ready = function() {
 
   // Searches cards upon each keystroke
   $("#cards-search input").keyup(function() {
-    $.get($("#products_search").attr("action"), $(this).serialize(), null, "script");
+    $.get($("#cards_search").attr("action"), $(this).serialize(), null, "script");
     return false;
   });
 
   // Increments or decrements card quantity
-  $(".incr_or_decr").submit(function(e) {
-    e.preventDefault();
+  $(".incr_or_decr").submit(function() {
+    alert("wow");
     var id = $("#card_id").val();
     $.ajax({
       url: '/collection',
