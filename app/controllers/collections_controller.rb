@@ -1,4 +1,6 @@
 class CollectionsController < ApplicationController
+	include CollectionsHelper
+	
   def show
     @collection = current_user.collection
     @coll_card_instances = @collection.collection_card_instances

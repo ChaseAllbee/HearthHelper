@@ -1,4 +1,5 @@
 class DecksController < ApplicationController
+  include DecksHelper
 
   def index
     month = Date.today.strftime("%B")
