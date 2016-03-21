@@ -886,7 +886,9 @@ br{
 
  #class-cards img{
  	cursor:pointer;
-  width:24%;
+ 	margin:0 auto;
+ 	display:block;
+  width:90%;
   padding: 0 20px;
 }
 
@@ -1178,6 +1180,7 @@ br{
 }
 
 #cards-search{
+	display:none;
 	position:absolute;
 	bottom:10px;
 	width:50%;
@@ -1189,5 +1192,41 @@ br{
 	background-color:white;
 	border-radius: 30px;
 }
+
+.card-wrapper{
+	display:inline-block;
+	text-align:center;
+	width:24%;
+}
+
+.card-wrapper form{
+	display:inline-block;
+}
+
+// .card-wrapper form:nth-child(1){
+
+// 	float:left;
+// }
+
+// .card-wrapper form:nth-child(2){
+// 	float:right;
+// }
+
+.card-wrapper p{
+	padding:0 20px;
+	margin-top: -10px;
+	font-size: 1.2em;
+	display:inline-block;
+}
+
+.card-count-changer{
+	margin:0;
+}
+
+.card-wrapper form input{
+	font-size: 2em;
+	padding:0 10px;
+}
+
 
 

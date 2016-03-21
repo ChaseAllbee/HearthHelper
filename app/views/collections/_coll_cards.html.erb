@@ -1,16 +1,18 @@
 <%= include_gon %>
 
 <% @cards.each do |card| %>
+  <div class="card-wrapper">
   <%= image_tag(card.image, class: owned_or_not(card)) %>
   <%= form_tag collection_path, method: "get", class: "incr_or_decr", id: "decrement" do %>
     <%= hidden_field_tag(:card_id, card.id) %>
-    <%= submit_tag "Decrement", name: nil, class: "user btn" %>
+    <%= submit_tag "-", name: nil, class: "user btn card-count-changer" %>
   <% end %>
-  <%= card_quantity(card) %>
+  <p class="numbers"><%= card_quantity(card) %></p>
   <%= form_tag collection_path, method: "get", class: "incr_or_decr", id: "increment" do %>
     <%= hidden_field_tag(:card_id, card.id) %>
-    <%= submit_tag "Increment", name: nil, class: "user btn" %>
+    <%= submit_tag "+", name: nil, class: "user btn card-count-changer" %>
   <% end %>
+  </div>
 <% end %>
 
 <%= will_paginate @cards, :page_links => false,
