@@ -9,11 +9,11 @@ class CollectionsController < ApplicationController
     @current_class = params[:current_class] || "Druid"
     gon.current_class = @current_class
     @cards = searching? ? search_results : page_current_class_cards
-    gon.last_page_num = @cards.total_pages
     increment_or_decrement(params[:increment_or_decrement]) if pressed_arrow?
     gon.current_page = params[:page]
     params.delete :card_id
     params.delete :increment_or_decrement
+    params.delete :prev
   end
 
 end

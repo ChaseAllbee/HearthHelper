@@ -10,9 +10,16 @@ module CollectionsHelper
     @current_class == "Druid" ? false : @cards.current_page == 1
   end
 
-  # Returns current page of cards of specified class
+  # Returns current page of cards of current class
   def page_current_class_cards
-    Card.with_class(@current_class).page(params[:page]).per_page(8)
+    cards = Card.with_class(@current_class)
+    page_num = params[:prev] ? last_page_num(cards) : params[:page]
+    cards.page(page_num).per_page(8)
+  end
+
+  # Returns the number of the last page in the current class
+  def last_page_num(cards)
+    (cards.count / 8.to_f).ceil
   end
 
   # Returns true if user has entered anything into the search bar
@@ -36,14 +43,18 @@ module CollectionsHelper
     c.nil? ? 0 : c.quantity
   end
 
+  # Returns the collection instance of card
   def instance_of(card_id)
     @coll_card_instances.find_by(card_id: card_id)
   end
 
+  # Returns true if incrementing or decrementing card quantity
   def pressed_arrow?
     return true unless params[:increment_or_decrement].nil?
   end
 
+  # Increments or decrements card quantity; if incrementing from 0,
+  # create card in collection, if decrementing from 1, destroy card
   def increment_or_decrement(incr_or_decr)
     if @owned.find_by(id: params[:card_id])
       incrementing?(incr_or_decr) ? increment : decrement_or_destroy
@@ -52,18 +63,22 @@ module CollectionsHelper
     end
   end
 
+  # Returns true if incrementing card quantity
   def incrementing?(incr_or_decr)
     incr_or_decr == "increment"
   end
 
+  # Increments card quantity
   def increment
     @coll_card_instances.increment_qty(params[:card_id])
   end
 
+  # Decrements card quantity or destroys card if 0 quantity
   def decrement_or_destroy
     @coll_card_instances.decrement_qty_or_destroy(params[:card_id])
   end
 
+  # Adds card to collection
   def add_card_to_collection
     @collection.cards << Card.find(params[:card_id])
   end

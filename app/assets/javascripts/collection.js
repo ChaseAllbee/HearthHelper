@@ -39,7 +39,7 @@ var ready = function() {
     $.ajax({
       url: '/collection',
       type: 'get',
-      data: {page: gon.last_page_num, current_class: prev_class},
+      data: {prev: true, current_class: prev_class},
       dataType: "script",
     });
     return false;
