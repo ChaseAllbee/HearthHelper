@@ -1,5 +1,6 @@
 class DecksController < ApplicationController
   include DecksHelper
+  before_action :logged_in_user
 
   def index
     month = Date.today.strftime("%B")

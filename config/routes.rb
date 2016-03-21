@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  resources :users
+  resources :users,                only: [:new, :create]
   resources :cards,                only: [:new, :create]
   resources :decks
   resources :saved_external_decks, only: [:create, :destroy]

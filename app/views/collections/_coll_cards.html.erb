@@ -10,7 +10,7 @@
     <% end %>
   <% end %>
   <p class="numbers"><%= card_quantity(card) %></p>
-  <% if card_quantity(card) <= 2 %>
+  <% if card_quantity(card) < 2 %>
     <%= form_tag collection_path, method: "get", class: "incr_or_decr", id: "increment" do %>
       <%= hidden_field_tag(:card_id, card.id) %>
       <%= submit_tag "+", name: nil, class: "user btn card-count-changer" %>

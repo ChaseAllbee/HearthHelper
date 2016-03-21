@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
-	include CollectionsHelper
+  include CollectionsHelper
+  before_action :logged_in_user
 
   def show
     @collection = current_user.collection
@@ -14,4 +15,5 @@ class CollectionsController < ApplicationController
     params.delete :card_id
     params.delete :increment_or_decrement
   end
+
 end
