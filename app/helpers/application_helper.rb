@@ -75,6 +75,8 @@ module ApplicationHelper
 	# Returns the dust value associated with card's rarity
 	def dust_value(card_rarity)
 		case card_rarity
+		when "Free"
+			return 0
 		when "Common"
 			return 40
 		when "Rare"

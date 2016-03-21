@@ -11,7 +11,7 @@ var ready = function() {
     $.ajax({
       url: '/collection',
       type: 'get',
-      data: {current_class: c_class},
+      data: {page: 1, current_class: c_class},
       dataType: "script",
     });
     return false;
@@ -53,11 +53,14 @@ var ready = function() {
 
   // Increments or decrements card quantity
   $("body").on("submit", ".incr_or_decr", function() {
-    var id = $("#card_id").val();
+    if (gon.current_page == null) {
+      gon.current_page = 1;
+    }
+    var id = $(this).children("#card_id").val();
     $.ajax({
       url: '/collection',
       type: 'get',
-      data: {increment_or_decrement: this.id, card_id: id},
+      data: {page: gon.current_page, current_class: gon.current_class, increment_or_decrement: this.id, card_id: id},
       dataType: "script",
     });
     return false;
