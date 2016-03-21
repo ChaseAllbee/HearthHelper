@@ -866,9 +866,10 @@ br{
 
 
 .deck-icons ul{padding:10px;}
-.deck-icons ul li{
+.deck-icons ul img{
 	display: block;
-	padding:7px 0;
+	padding:0;
+	margin: 10px 0;
 }
 
 #class-name{
@@ -1196,7 +1197,8 @@ br{
 .card-wrapper{
 	display:inline-block;
 	text-align:center;
-	width:24%;
+	margin:5px 5px;
+	width:23%;
 }
 
 .card-wrapper form{
