@@ -83,4 +83,10 @@ module CollectionsHelper
     @collection.cards << Card.find(params[:card_id])
   end
 
+  def delete_params
+    params.delete :card_id
+    params.delete :increment_or_decrement
+    params.delete :prev
+  end
+
 end

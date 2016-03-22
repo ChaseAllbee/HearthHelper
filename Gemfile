@@ -25,9 +25,11 @@ gem 'bootstrap-sass'
 gem 'watir'
 gem 'mechanize'
 gem 'watir-webdriver'
+gem 'selenium-webdriver', '2.53.0'
 gem 'seed_dump'
 gem 'gon'
 gem 'will_paginate', '~> 3.0.6'
+gem 'watir-scroll'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
