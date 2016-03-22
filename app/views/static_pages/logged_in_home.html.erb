@@ -28,28 +28,30 @@
 			  	<% @tracked_decks.each_slice(3).with_index do |slice, slice_idx| %>
 			  		<div class="row">
 			  		<% slice.each_with_index do |tracked_deck, deck_idx| %>
-  			  		<div class="col l4 m12 s12">
-  			  			<figure class="tracked-deck btn">
-                  <div class="deck-class-bar <%= tracked_deck.deck_class %>">
-                    <h6><i><%= tracked_deck.deck_class %></i></h6>
-                  </div>
-                  <div class="deck-info">
-                    <h6 class="info-heading">Deck Name</h6>
-                    <h6><%= tracked_deck.name %></h6>
-                    <div class="info-width">
-                      <h6 class="info-heading">Cards Owned</h6>
-                      <h6 class="cards-owned numbers"><%= @num_owned[deck_idx + slice_idx * 3] %>/30</h6>
+              <a><%= link_to deck_path(tracked_deck) do %>
+    			  		<div class="col l4 m12 s12">
+    			  			<figure class="tracked-deck btn">
+                    <div class="deck-class-bar <%= tracked_deck.deck_class %>">
+                      <h6><i><%= tracked_deck.deck_class %></i></h6>
                     </div>
-                    <div class="info-width">
-                      <h6 class="info-heading">Dust to Craft</h6>
-                      <h6 class="numbers"><%= @dust_to_craft[deck_idx + slice_idx * 3] %></h6>
+                    <div class="deck-info">
+                      <h6 class="info-heading">Deck Name</h6>
+                      <h6><%= tracked_deck.name %></h6>
+                      <div class="info-width">
+                        <h6 class="info-heading">Cards Owned</h6>
+                        <h6 class="cards-owned numbers"><%= @num_owned[deck_idx + slice_idx * 3] %>/30</h6>
+                      </div>
+                      <div class="info-width">
+                        <h6 class="info-heading">Dust to Craft</h6>
+                        <h6 class="numbers"><%= @dust_to_craft[deck_idx + slice_idx * 3] %></h6>
+                      </div>
+                      <div class="progress ">
+                        <div class="determinate" style="width: 0%" id="progress-bar"></div>
+                      </div>
                     </div>
-                    <div class="progress ">
-                      <div class="determinate" style="width: 0%" id="progress-bar"></div>
-                    </div>
-                  </div>
-  			  			</figure>
-  			  		</div>
+    			  			</figure>
+    			  		</div>
+              <% end %></a>
 			  		<% end %>
 			  		</div>
 			  	<% end %>
