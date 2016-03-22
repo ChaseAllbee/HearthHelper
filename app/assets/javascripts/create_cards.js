@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     //AJAX call to gather cards
     $.ajax({
-      url: 'https://omgvamp-hearthstone-v1.p.mashape.com/cards',
+      url: 'https://omgvamp-hearthstone-v1.p.mashape.com/cards?collectible=1',
       type: 'GET',
       data: {},
       dataType: 'json',
@@ -44,10 +44,8 @@ $(document).ready(function() {
             allCards[counter] = card;
             //This check is to eliminate extra results from the list, some cards taken from the API weren't cards you could actually play
             //So, if the rarity is undefined that means it's not ownable and thus shouldn't be in the database
-            if (typeof card.rarity != 'undefined'){
+            if (card.card_type != 'Hero'){
               counter++;
-            }
-            else{
             }
           });
         });
