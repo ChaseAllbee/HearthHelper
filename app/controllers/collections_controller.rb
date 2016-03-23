@@ -11,6 +11,7 @@ class CollectionsController < ApplicationController
     @cards = searching? ? search_results : page_current_class_cards
     increment_or_decrement(params[:increment_or_decrement]) if pressed_arrow?
     gon.current_page = params[:page]
+    delete_params
   end
 
 end
