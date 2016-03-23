@@ -14,4 +14,24 @@ class ExternalDeck < ActiveRecord::Base
   def quantity(card)
     external_deck_instances.find_by(card_id: card.id).quantity
   end
+
+  # Returns decks in selected tier
+  def self.with_tier(tier)
+    where("tier = ?", tier)
+  end
+
+  # Returns decks in selected month
+  def self.with_month(month)
+    where("name LIKE ?", "%#{month}%")
+  end
+
+  # Returns decks with selected class
+  def self.with_class(deck_class)
+    if deck_class
+      where("deck_class = ?", deck_class)
+    else
+      where(nil)
+    end
+  end
+
 end

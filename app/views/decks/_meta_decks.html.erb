@@ -1,0 +1,27 @@
+<% @meta_decks.each_slice(3).with_index do |slice, slice_idx| %>
+  <% slice.each_with_index do |meta_deck, deck_idx| %>
+    <a><%= link_to deck_path(meta_deck) do %>
+      <figure class="tracked-deck btn">
+        <div class="deck-class-bar <%= meta_deck.deck_class %>">
+          <h6><i><%= meta_deck.deck_class %></i></h6>
+        </div>
+        <div class="deck-info">
+          <h6 class="info-heading">Deck Name</h6>
+          <h6><%= meta_deck.name %></h6>
+          <div class="info-width">
+            <h6 class="info-heading">Cards Owned</h6>
+            <h6 class="cards-owned numbers"><%= @num_owned[deck_idx + slice_idx * 3] %>/30</h6>
+          </div>
+          <div class="info-width">
+            <h6 class="info-heading">Dust to Craft</h6>
+            <h6 class="numbers"><%= @dust_to_craft[deck_idx + slice_idx * 3] %></h6>
+          </div>
+          <div class="progress ">
+            <div class="determinate" style="width: 0%" id="progress-bar"></div>
+          </div>
+        </div>
+      </figure>
+    <% end %></a>
+  <% end %>
+<% end %>
+

@@ -6,7 +6,7 @@ var ready = function() {
   });
 
   // Changes card class to selected option
-  $("body").on("click", ".sort-icon", function() {
+  $("body").on("click", ".sort-icon.coll", function() {
     var c_class = this.id;
     $.ajax({
       url: '/collection',

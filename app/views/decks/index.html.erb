@@ -2,15 +2,16 @@
     <body class="white-bg">
       <div class="row sort-search">
 		  <div class="col s8">
-		  	<%= image_tag("druid.png", class:"deck-sort-icon btn-floating sort-icon") %>
-		  	<%= image_tag("hunter.png", class:"deck-sort-icon btn-floating sort-icon") %>
-		  	<%= image_tag("mage.png", class:"deck-sort-icon btn-floating sort-icon") %>
-		  	<%= image_tag("paladin.png", class:"deck-sort-icon btn-floating sort-icon") %>
-		  	<%= image_tag("priest.png", class:"deck-sort-icon btn-floating sort-icon") %>
-		  	<%= image_tag("rogue.png", class:"deck-sort-icon btn-floating sort-icon") %>
-		  	<%= image_tag("shaman.png", class:"deck-sort-icon btn-floating sort-icon") %>
-		  	<%= image_tag("warlock.png", class:"deck-sort-icon btn-floating sort-icon") %>
-		  	<%= image_tag("warrior.png", class:"deck-sort-icon btn-floating sort-icon") %>
+		  	<%= image_tag("neutral.png", id: "All", class:"deck-sort-icon btn-floating sort-icon decks") %>
+		  	<%= image_tag("druid.png", id:"Druid", class:"deck-sort-icon btn-floating sort-icon decks") %>
+		  	<%= image_tag("hunter.png", id:"Hunter", class:"deck-sort-icon btn-floating sort-icon decks") %>
+		  	<%= image_tag("mage.png", id:"Mage", class:"deck-sort-icon btn-floating sort-icon decks") %>
+		  	<%= image_tag("paladin.png", id:"Paladin", class:"deck-sort-icon btn-floating sort-icon decks") %>
+		  	<%= image_tag("priest.png", id:"Priest", class:"deck-sort-icon btn-floating sort-icon decks") %>
+		  	<%= image_tag("rogue.png", id:"Rogue", class:"deck-sort-icon btn-floating sort-icon decks") %>
+		  	<%= image_tag("shaman.png", id:"Shaman", class:"deck-sort-icon btn-floating sort-icon decks") %>
+		  	<%= image_tag("warlock.png", id:"Warlock", class:"deck-sort-icon btn-floating sort-icon decks") %>
+		  	<%= image_tag("warrior.png", id:"Warrior", class:"deck-sort-icon btn-floating sort-icon decks") %>
 		  </div>
 		  <div class="col s4">
 			<input placeholder="search" id="search-field" type="text">
@@ -90,38 +91,14 @@
 							</div>
 						</figure>
 					</div>
-	
+
 
       		<div class="col l4 m12 s12">
-      			<h4>Tier 1 Meta - TS</h4>
+      			<h4>Current Popular Decks</h4>
       			<hr class="half"/>
-      			<% @meta_decks.each_slice(3).with_index do |slice, slice_idx| %>
-      				<% slice.each_with_index do |meta_deck, deck_idx| %>
-				  			<a><%= link_to deck_path(meta_deck) do %>
-					  			<figure class="tracked-deck btn">
-										<div class="deck-class-bar <%= meta_deck.deck_class %>">
-											<h6><i><%= meta_deck.deck_class %></i></h6>
-										</div>
-					  				<div class="deck-info">
-					  					<h6 class="info-heading">Deck Name</h6>
-											<h6><%= meta_deck.name %></h6>
-											<div class="info-width">
-												<h6 class="info-heading">Cards Owned</h6>
-										  	<h6 class="cards-owned numbers"><%= @num_owned[deck_idx + slice_idx * 3] %>/30</h6>
-										  </div>
-										  <div class="info-width">
-										  	<h6 class="info-heading">Dust to Craft</h6>
-		  				  				<h6 class="numbers"><%= @dust_to_craft[deck_idx + slice_idx * 3] %></h6>
-		  				  			</div>
-	  				  				<div class="progress ">
-	  				  					<div class="determinate" style="width: 0%" id="progress-bar"></div>
-	  				  				</div>
-										</div>
-									</figure>
-								<% end %></a>
-							<% end %>
-						<% end %>
-
+      			<div id="meta-decks">
+      				<%= render 'meta_decks' %>
+      			</div>
       		</div>
       		<div class="col l4 m12 s12">
       			<h4>My Custom Decks</h4>

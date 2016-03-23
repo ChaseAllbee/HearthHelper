@@ -4,7 +4,7 @@ class DecksController < ApplicationController
 
   def index
     month = Date.today.strftime("%B")
-    @meta_decks = ExternalDeck.where(tier: 1).where("name LIKE ?", "%#{month}%")
+    @meta_decks = ExternalDeck.with_tier(1).with_month(month).with_class(params[:selected_class])
     @num_owned = []
     @dust_to_craft = []
     @meta_decks.each do |meta_deck|

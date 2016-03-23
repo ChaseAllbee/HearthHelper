@@ -17,13 +17,13 @@ class Card < ActiveRecord::Base
 
   # Returns ids of all playable cards of same class in ascending mana cost
   def self.with_class(card_class)
-    where("card_class = ?", card_class).where("cost >= 0").order(:cost)
+    where("card_class = ?", card_class).order(:cost)
   end
 
   # Returns result of search
   def self.search(search)
     if search != ""
-      where("name LIKE ?", "%#{search}%").where("cost >= 0").order(:cost)
+      where("name LIKE ?", "%#{search}%").order(:cost)
     else
       with_class("Druid")
     end
