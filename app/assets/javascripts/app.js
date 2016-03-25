@@ -84,17 +84,28 @@ var ready = function(){
 	});
 
 	// Changes deck class to selected option
-	  $("body").on("click", ".sort-icon.decks", function() {
-	    var s_class = this.id;
-	    $.ajax({
-	      url: '/decks',
-	      type: 'get',
-	      data: s_class != "All" ? {selected_class: s_class} : undefined,
-	      dataType: "script",
-	    });
-	    return false;
-	  });
+  $("body").on("click", ".sort-icon.decks", function() {
+    var s_class = this.id;
+    $.ajax({
+      url: '/decks',
+      type: 'get',
+      data: s_class != "All" ? {selected_class: s_class} : undefined,
+      dataType: "script",
+    });
+    return false;
+  });
 
+  // Changes deck tier to selected tier
+   $("body").on("click", ".tiers", function() {
+    var tier_num= this.id;
+    $.ajax({
+      url: '/decks',
+      type: 'get',
+      data: {tier: tier_num},
+      dataType: "script",
+    });
+    return false;
+  });
 };
 
 $(document).ready(ready);

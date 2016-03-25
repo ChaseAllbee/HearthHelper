@@ -10,4 +10,10 @@ module DecksHelper
 		end
 		return mana_costs
 	end
+
+	#Returns meta decks
+	def get_meta_decks(month)
+		ExternalDeck.with_tier(params[:tier] || 1).with_month(month).with_class(params[:selected_class])
+	end
+
 end
