@@ -1,3 +1,5 @@
+<%= include_gon %>
+
 <% @meta_decks.each_slice(3).with_index do |slice, slice_idx| %>
   <% slice.each_with_index do |meta_deck, deck_idx| %>
     <a><%= link_to deck_path(meta_deck) do %>

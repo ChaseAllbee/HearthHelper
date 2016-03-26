@@ -13,7 +13,7 @@ module DecksHelper
 
 	#Returns meta decks
 	def get_meta_decks(month)
-		ExternalDeck.with_tier(params[:tier] || 1).with_month(month).with_class(params[:selected_class])
+		ExternalDeck.with_tier(params[:tier] || 1).with_month(month).with_class(params[:current_class])
 	end
 
 end

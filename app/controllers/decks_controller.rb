@@ -11,6 +11,8 @@ class DecksController < ApplicationController
     	@num_owned << num_cards_owned(meta_deck)
     	@dust_to_craft << dust_needed(meta_deck)
     end
+    gon.tier = params[:tier]
+    gon.current_class = params[:current_class]
   end
 
   def new
