@@ -1,5 +1,6 @@
 var ready = function(){
 	$(".button-collapse").sideNav();
+  fillProgressBars();
 	var lemailflag = false;
 	var lpasswordflag = false;
 	//Swap classes for login and sign out depending on which one is selected at the time
@@ -28,23 +29,6 @@ var ready = function(){
 	$("#signup").click(function(){
 		if($("#signup").hasClass("login-notselected")){
 		}
-	});
-
-
-	$(".cards-owned").each(function(index){
-		//alert(index);
-		var progressbar = $(this).html();
-		var temp="";
-		var percent = 0;
-		for(var j=0; j<2;j++){
-			if(progressbar[j]=="/"){
-				break;
-			}
-			temp += "" + progressbar[j];
-		}
-		percent = "" + (Math.round((+temp)/30*100)) + "%";
-		$(this).parent().siblings(".progress").children()[0].style.width = percent;
-		//$(this).siblings("#progress-bar")[0].style.width = percent;
 	});
 
 	$(window).scroll(function() {
@@ -91,6 +75,7 @@ var ready = function(){
       type: 'get',
       data: c_class != "All" ? {current_class: c_class} : {tier: gon.tier},
       dataType: "script",
+      success: fillProgressBars,
     });
     return false;
   });
@@ -104,9 +89,27 @@ var ready = function(){
       type: 'get',
       data: {tier: tier_num, current_class: c_class},
       dataType: "script",
+      success: fillProgressBars,
     });
     return false;
   });
+
+  function fillProgressBars() {
+    $(".cards-owned").each(function(index){
+      var progressbar = $(this).html();
+      var temp="";
+      var percent = 0;
+      for(var j=0; j<2;j++){
+        if(progressbar[j]=="/"){
+          break;
+        }
+        temp += "" + progressbar[j];
+      }
+      percent = "" + (Math.round((+temp)/30*100)) + "%";
+      $(this).parent().siblings(".progress").children()[0].style.width = percent;
+      //$(this).siblings("#progress-bar")[0].style.width = percent;
+    });
+  }
 };
 
 $(document).ready(ready);
