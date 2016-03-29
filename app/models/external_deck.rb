@@ -27,7 +27,7 @@ class ExternalDeck < ActiveRecord::Base
 
   # Returns decks with selected class
   def self.with_class(deck_class)
-    if deck_class
+    if deck_class && deck_class != "All"
       where("deck_class = ?", deck_class)
     else
       where(nil)

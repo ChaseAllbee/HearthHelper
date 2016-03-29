@@ -3,14 +3,11 @@ class DecksController < ApplicationController
   before_action :logged_in_user
 
   def index
-    month = Date.today.strftime("%B")
-    @meta_decks = get_meta_decks(month)
-    @num_owned = []
-    @dust_to_craft = []
-    @meta_decks.each do |meta_deck|
-    	@num_owned << num_cards_owned(meta_deck)
-    	@dust_to_craft << dust_needed(meta_deck)
-    end
+    @recommended_decks = []
+    all_decks = get_all_current_decks
+    @meta_decks = all_decks.with_tier(params[:tier] || 1)
+    @num_owned_rec, @dust_to_craft_rec = num_owned_and_dust_rec(all_decks)
+    @num_owned_meta, @dust_to_craft_meta = num_owned_and_dust_meta
     gon.tier = params[:tier]
     gon.current_class = params[:current_class]
   end

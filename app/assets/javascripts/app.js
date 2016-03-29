@@ -70,10 +70,11 @@ var ready = function(){
 	// Changes deck class to selected option
   $("body").on("click", ".sort-icon.decks", function() {
     var c_class = this.id;
+    var tier_num = gon.tier == null ? 1 : gon.tier;
     $.ajax({
       url: '/decks',
       type: 'get',
-      data: c_class != "All" ? {current_class: c_class} : {tier: gon.tier},
+      data: {current_class: c_class, tier: tier_num},
       dataType: "script",
       success: fillProgressBars,
     });
@@ -83,7 +84,7 @@ var ready = function(){
   // Changes deck tier to selected tier
    $("body").on("click", ".tiers", function() {
     var tier_num = this.id;
-    var c_class = gon.current_class == null ? undefined : gon.current_class;
+    var c_class = gon.current_class == null ? "All" : gon.current_class;
     $.ajax({
       url: '/decks',
       type: 'get',

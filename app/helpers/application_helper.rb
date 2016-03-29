@@ -36,12 +36,12 @@ module ApplicationHelper
 
 	# Totals number of cards missing for tracked deck
 	def num_cards_owned(tracked_deck)
-		@quantity_same_cards = quantity_same_query(coll_id, tracked_deck_id(tracked_deck))
-		@quantity_diff_cards = quantity_diff_query(coll_id, tracked_deck_id(tracked_deck))
-		same_card_count = @quantity_same_cards.inject(0) do |quantity, card|
+		quantity_same_cards = quantity_same_query(coll_id, tracked_deck_id(tracked_deck))
+		quantity_diff_cards = quantity_diff_query(coll_id, tracked_deck_id(tracked_deck))
+		same_card_count = quantity_same_cards.inject(0) do |quantity, card|
 			quantity + card_quantity(card)
 		end
-		same_card_count + @quantity_diff_cards.count
+		same_card_count + quantity_diff_cards.count
 	end
 
 	# Returns quantity of specified card
@@ -51,8 +51,9 @@ module ApplicationHelper
 
 	# Calculates dust needed to craft remainder of deck
 	def dust_needed(tracked_deck)
-		@deck_not_collection_cards = deck_not_collection_query(coll_id, tracked_deck_id(tracked_deck))
-		dust_total(@quantity_diff_cards) + dust_total(@deck_not_collection_cards)
+		deck_not_collection_cards = deck_not_collection_query(coll_id, tracked_deck_id(tracked_deck))
+		quantity_diff_cards = quantity_diff_query(coll_id, tracked_deck_id(tracked_deck))
+		dust_total(quantity_diff_cards) + dust_total(deck_not_collection_cards)
 	end
 
 	# Returns user's collection ID
@@ -96,5 +97,10 @@ module ApplicationHelper
     else
       page_title + " - " + base_title
     end
+  end
+
+  # Returns the current month
+  def current_month
+  	Date.today.strftime("%B")
   end
 end
