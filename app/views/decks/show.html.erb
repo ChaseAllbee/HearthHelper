@@ -20,7 +20,7 @@
 						<h6>Cards</h6>
 						<ul class="card-ul">
 							<% @deck.cards.each do |card| %>
-							<li><p><%="#{card.cost}"%></p> 
+							<li><p><%="#{card.cost}"%></p>
 									<p><%="#{card.name}"%></p>
 									<p><%= "x " + "#{@deck.quantity(card)}"%><p></li>
 							<% end %>
@@ -39,7 +39,7 @@
 										<h5 class="numbers"><%= @dust_to_craft %></h5>
 									</div>
 									<h6 class="info-heading">Number of Cards Missing</h6>
-									<h5 class="numbers"><%= @num_owned %></h5>					
+									<h5 class="numbers"><%= num_cards_missing %></h5>
 								</div>
 							</div>
 							<h6>Mana Curve</h6>

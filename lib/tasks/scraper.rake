@@ -39,6 +39,7 @@ namespace :scraper do
               puts "#{deck_name}" + " #{card.text}" + " " "qty: " + "#{quantity[i]}"
               push_deck_cards(deck_id, card.text, quantity[i])
             end
+            @browser.close
           end
         end
       end
@@ -78,7 +79,7 @@ def get_deck_names
   deck_names = []
   @browser.divs(:class => "tier-deck").each do |name|
     deck_names << name.text.sub!("\nVIEW DECK",
-                                 " - #{Date.today.strftime("%B")}")
+                                 " - #{Date.today.prev_month.strftime("%B")}")
   end
   return deck_names
 end

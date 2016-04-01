@@ -56,4 +56,9 @@ module DecksHelper
     end
     return num_owned, dust_to_craft
 	end
+
+  # Returns number of cards missing from deck
+  def num_cards_missing
+    30 - @num_owned
+  end
 end
