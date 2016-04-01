@@ -103,4 +103,9 @@ module ApplicationHelper
   def current_month
   	Date.today.strftime("%B")
   end
+
+  # Returns the last month
+  def last_month
+  	Date.today.prev_month.strftime("%B")
+  end
 end
