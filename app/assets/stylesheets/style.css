@@ -927,9 +927,12 @@ br{
 	padding:20px 20px 0 20px;
 }
 
-.deck-page-module h6,
-.deck-page-module h5{
+.deck-page-module .missing{
+	padding-top: 75px;
+}
 
+.single-deck-page .brand-logo{
+	padding:5px 0 0 40px;
 }
 
 .deck-background-image{
@@ -938,6 +941,10 @@ br{
 	background-position:center;
 	background-size: cover;
 	position:absolute;
+}
+
+.missing-card{
+	color: #FF5756;
 }
 
 #mask {
