@@ -1,8 +1,8 @@
 <% provide(:title, 'Decks') %>
     <body class="white-bg">
       <div class="row sort-search">
-		  <div class="col s8">
-		  	<%= image_tag("neutral.png", id: "All", class:"deck-sort-icon btn-floating sort-icon decks") %>
+		  <div class="col s12">
+		  	<div id="All" class="deck-sort-icon btn-floating sort-icon decks icon-selected"><h4>ALL</h4></div>
 		  	<%= image_tag("druid.png", id:"Druid", class:"deck-sort-icon btn-floating sort-icon decks") %>
 		  	<%= image_tag("hunter.png", id:"Hunter", class:"deck-sort-icon btn-floating sort-icon decks") %>
 		  	<%= image_tag("mage.png", id:"Mage", class:"deck-sort-icon btn-floating sort-icon decks") %>
@@ -13,9 +13,6 @@
 		  	<%= image_tag("warlock.png", id:"Warlock", class:"deck-sort-icon btn-floating sort-icon decks") %>
 		  	<%= image_tag("warrior.png", id:"Warrior", class:"deck-sort-icon btn-floating sort-icon decks") %>
 		  </div>
-		  <div class="col s4">
-			<input placeholder="search" id="search-field" type="text">
-      	  </div>
       </div>
 <!--       <div class="row mobile-search">
       	<div class="col s12">
@@ -35,13 +32,20 @@
 
       		<div class="col l4 m12 s12">
       			<h4>Current Popular Decks</h4>
+      			<!-- Dropdown Trigger -->
+      			<div class='dropdown-button btn tier-dropdown-trigger' data-hover="true" href='#' data-activates='dropdown1'>Tiers</div>
+
+      			<!-- Dropdown Structure -->
+      			<ul id='dropdown1' class='dropdown-content tier-dropdown'>
+      			  <li class="tiers left" id="1"><a href="#!">Tier 1</a></li>
+      			  <li class="divider"></li>
+      			  <li class="tiers center" id="2"><a href="#!">Tier 2</a></li>
+      			  <li class="divider"></li>
+      			  <li class="tiers center" id="3"><a href="#!">Tier 3</a></li>
+      			  <li class="divider"></li>
+      			  <li class="tiers right" id="4"><a href="#!">Tier 4</a></li>
+      			</ul>
       			<hr class="half"/>
-      			<div id="tiers">
-      				<div class="user btn tiers" id="1">Tier 1</div>
-      				<div class="user btn tiers" id="2">Tier 2</div>
-      				<div class="user btn tiers" id="3">Tier 3</div>
-      				<div class="user btn tiers" id="4">Tier 4</div>
-      			</div>
       			<div id="meta-decks">
       				<%= render 'meta_decks' %>
       			</div>

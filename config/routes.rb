@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root                'static_pages#home'
+  put    'update_dust' => 'static_pages#update'
   get    'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

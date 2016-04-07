@@ -1,0 +1,4 @@
+<%= form_tag update_dust_path, method: "put", id: "dust_post" do %>
+  <%= text_field_tag :dust, params[:dust], value:@user.collection.dust, class:'numbers'%><i class="material-icons edit-mode">mode_edit</i>
+  <%= submit_tag "dust_post", name: nil, class:"hidden" %>
+<% end %>

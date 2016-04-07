@@ -94,6 +94,11 @@ nav .button-collapse{
 
 a:active{ color:inherit; }
 
+#All{
+	border: 1px solid black;
+  font-size: .9em;
+}
+
 .Druid{ background-color: #27ae60; }
 
 .Hunter{ background-color: #306952; }
@@ -172,12 +177,12 @@ a:active{ color:inherit; }
 }
 
 .splash-info h3{
-	font-size:4rem;
+	font-size:3rem;
 	font-weight:800;
 }
 
 .splash-info p{
-	letter-spacing: .5em;
+	letter-spacing: .1em;
 }
 
 .intro-wrap2{
@@ -429,6 +434,34 @@ a:active{ color:inherit; }
 
 }
 
+.edit-mode{
+	cursor:pointer;
+	margin:0 10px;
+}
+
+#dust_post{
+	display:inline-block;
+}
+
+#dust-form{
+	display:inline-block;
+	width:60%;
+}
+
+
+#dust{
+	width:140px;
+	font-size: .8em;
+}
+#dust_post input,
+#dust_post i{
+	display:inline-block;
+}
+
+#dust_post .hidden{
+	display:none;
+}
+
 .user{
 	color:black;
 }
@@ -576,6 +609,14 @@ br{
 	margin-left:7%;
 }
 
+.decks .offset-s4{
+	text-align: center;
+}
+
+.decks .m12 h4{
+	margin-right:10px;
+}
+
 .decks hr{
 	width:85%;
 	border-top: 3px solid black;
@@ -584,6 +625,35 @@ br{
 #tracked-decks-line{
 		margin:0 auto;
 	}
+
+.tiers{
+	text-align: center;
+}
+
+.decks h4{
+	font-size: 1.7vw;
+	display:inline-block;;
+}
+
+.sort-search .s12{
+	text-align: center;
+}
+
+.decks .tier-dropdown-trigger{
+	  padding: 0 35px;
+	  background-color: #039be5;
+    margin: 0;
+    color:white;
+    text-transform: uppercase;
+}
+.tier-dropdown{
+	margin:0;
+}
+
+#dropdown1{
+	width:135px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
 
 .max-weight{
 	font-weight: 700;
@@ -688,8 +758,8 @@ br{
 }
 
 .deck-sort-icon{
-    width:50px;
-    height:50px;
+    width:70px;
+    height:70px;
     border-radius:250px;
     font-size: 2em;
     line-height:50px;
@@ -697,6 +767,11 @@ br{
     display: inline-block;
     text-align: center;
     opacity:.5;
+    margin: 50px 10px 0;
+}
+
+#All h4{
+	margin: 20px 10px;
 }
 
 .deck-sort-icon:hover{
@@ -895,10 +970,6 @@ br{
 
 #class-cards img:nth_child(4){
 	clear:both;
-}
-
-.owned{
-
 }
 
 .not-owned{
@@ -1211,15 +1282,6 @@ br{
 .card-wrapper form{
 	display:inline-block;
 }
-
-// .card-wrapper form:nth-child(1){
-
-// 	float:left;
-// }
-
-// .card-wrapper form:nth-child(2){
-// 	float:right;
-// }
 
 .card-wrapper p{
 	padding:0 20px;

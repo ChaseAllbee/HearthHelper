@@ -4,7 +4,11 @@
       	<div class="col l4 m12 s12 user info">
       		<h1><%= @user.username %></h1>
       		<hr class="half thin-hr"/>
-      		<h2>Dust: <%= @user.collection.dust %> </h2>
+      		<h2>Dust: <div id="dust-form"><%= render 'dust' %></div></h2>
+
+
+
+
       	</div>
       	<div class="col l6 offset-l2 m12 s12 user data">
       	</div>

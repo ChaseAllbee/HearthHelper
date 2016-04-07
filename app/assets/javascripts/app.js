@@ -95,6 +95,18 @@ var ready = function(){
     return false;
   });
 
+
+   $("body").on("submit", "dust_post", function() {
+   	var dust_num = $('#dust').val();
+    $.ajax({
+      url: '/',
+      type: 'PUT',
+      data: {dust: dust_num},
+      dataType: "script",
+    });
+    return false;
+  });
+
   function fillProgressBars() {
     $(".cards-owned").each(function(index){
       var progressbar = $(this).html();
